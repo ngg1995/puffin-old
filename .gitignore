@@ -1,0 +1,7 @@
+__pycache__/
+
+
+*.autosave
+.files/
+test.*
+test_uq.*
