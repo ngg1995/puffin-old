@@ -63,4 +63,4 @@ if __name__ == "__main__":
 
     # read('test.py','test.pf')
     antlr_puffin.read('test.pf','test.pf-R','R')
-    write('test.py','test_puffin.py','test.pf-R')
+    write('test.R','test_puffin.R','test.pf-R')

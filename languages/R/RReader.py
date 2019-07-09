@@ -5,66 +5,94 @@ if __name__ is not None and "." in __name__:
 else:
     from RParser import RParser
 
+import sys
+from useful import child_catcher, has_child
+
 # This class defines a complete listener for a parse tree produced by RParser.
-class RListener(ParseTreeListener):
+class RReader(ParseTreeListener):
 
-    # Enter a parse tree produced by RParser#file_input.
-    def enterFile_input(self, ctx:RParser.File_inputContext):
-        pass
+    def __init__(self, output):
+        self.output = output
+        self.vardec = False
+        self.list_text = ""
+        self.funname = ""
 
-    # Exit a parse tree produced by RParser#file_input.
-    def exitFile_input(self, ctx:RParser.File_inputContext):
-        pass
-
-
-    # Enter a parse tree produced by RParser#stmt.
-    def enterStmt(self, ctx:RParser.StmtContext):
-        pass
 
     # Exit a parse tree produced by RParser#stmt.
     def exitStmt(self, ctx:RParser.StmtContext):
-        pass
 
 
-    # Enter a parse tree produced by RParser#complex_stmt.
-    def enterComplex_stmt(self, ctx:RParser.Complex_stmtContext):
-        pass
+        if self.vardec:
+            if self.list_text != "":
 
-    # Exit a parse tree produced by RParser#complex_stmt.
-    def exitComplex_stmt(self, ctx:RParser.Complex_stmtContext):
-        pass
+                text = ctx.getText().split('=')[0]+' -> '+self.list_text +'\n'
+            else:
 
+                text = ctx.getText()+'\n'
+                print(child_catcher(ctx))
 
-    # Enter a parse tree produced by RParser#simple_stmt.
-    def enterSimple_stmt(self, ctx:RParser.Simple_stmtContext):
-        pass
+            if self.funname != "":
+
+                text = "%s.%s" %(self.funname,text)
+
+            self.output.write(text)
+
 
     # Exit a parse tree produced by RParser#simple_stmt.
     def exitSimple_stmt(self, ctx:RParser.Simple_stmtContext):
-        pass
+        if self.vardec:
+            ctx.text = child_catcher(ctx)
 
+    # Enter a parse tree produced by RParser#function_stmt.
+    def enterFunction_stmt(self, ctx:RParser.Function_stmtContext):
+        self.funname = child_catcher(ctx,list = True)[2]
+
+
+    # Exit a parse tree produced by RParser#function_stmt.
+    def exitFunction_stmt(self, ctx:RParser.Function_stmtContext):
+        self.funname = ""
+
+    # Enter a parse tree produced by RParser#assingment_stmt.
+    def enterAssingment_stmt(self, ctx:RParser.Assingment_stmtContext):
+        if ctx.getChildCount() == 3:
+            self.vardec = True
+        else:
+            self.vardec = False
+
+
+    # Exit a parse tree produced by RParser#assingment_stmt.
+    def exitAssingment_stmt(self, ctx:RParser.Assingment_stmtContext):
+        if self.vardec:
+            ctx.text = child_catcher(ctx)
 
     # Enter a parse tree produced by RParser#expr.
     def enterExpr(self, ctx:RParser.ExprContext):
-        pass
+        if self.vardec:
+            self.vardec = has_child(ctx)
+
 
     # Exit a parse tree produced by RParser#expr.
     def exitExpr(self, ctx:RParser.ExprContext):
         pass
 
 
-    # Enter a parse tree produced by RParser#assop.
-    def enterAssop(self, ctx:RParser.AssopContext):
-        pass
+    # Enter a parse tree produced by RParser#logical.
+    def enterLogical(self, ctx:RParser.LogicalContext):
+        if self.vardec:
+            self.vardec = has_child(ctx)
 
-    # Exit a parse tree produced by RParser#assop.
-    def exitAssop(self, ctx:RParser.AssopContext):
+
+
+    # Exit a parse tree produced by RParser#logical.
+    def exitLogical(self, ctx:RParser.LogicalContext):
         pass
 
 
     # Enter a parse tree produced by RParser#arith.
     def enterArith(self, ctx:RParser.ArithContext):
-        pass
+        if self.vardec:
+            self.vardec = has_child(ctx)
+
 
     # Exit a parse tree produced by RParser#arith.
     def exitArith(self, ctx:RParser.ArithContext):
@@ -73,7 +101,9 @@ class RListener(ParseTreeListener):
 
     # Enter a parse tree produced by RParser#term.
     def enterTerm(self, ctx:RParser.TermContext):
-        pass
+        if self.vardec:
+            self.vardec = has_child(ctx)
+
 
     # Exit a parse tree produced by RParser#term.
     def exitTerm(self, ctx:RParser.TermContext):
@@ -82,7 +112,9 @@ class RListener(ParseTreeListener):
 
     # Enter a parse tree produced by RParser#factor.
     def enterFactor(self, ctx:RParser.FactorContext):
-        pass
+        if self.vardec:
+            self.vardec = has_child(ctx)
+
 
     # Exit a parse tree produced by RParser#factor.
     def exitFactor(self, ctx:RParser.FactorContext):
@@ -91,46 +123,34 @@ class RListener(ParseTreeListener):
 
     # Enter a parse tree produced by RParser#power.
     def enterPower(self, ctx:RParser.PowerContext):
-        pass
+        if self.vardec:
+            self.vardec = has_child(ctx)
+
 
     # Exit a parse tree produced by RParser#power.
     def exitPower(self, ctx:RParser.PowerContext):
         pass
 
 
-    # Enter a parse tree produced by RParser#element.
-    def enterElement(self, ctx:RParser.ElementContext):
-        pass
-
-    # Exit a parse tree produced by RParser#element.
-    def exitElement(self, ctx:RParser.ElementContext):
-        pass
+    # Enter a parse tree produced by RParser#kwrd.
+    def enterKwrd(self, ctx:RParser.KwrdContext):
+        if self.vardec:
+            self.vardec = has_child(ctx)
 
 
-    # Enter a parse tree produced by RParser#id_name.
-    def enterId_name(self, ctx:RParser.Id_nameContext):
-        pass
-
-    # Exit a parse tree produced by RParser#id_name.
-    def exitId_name(self, ctx:RParser.Id_nameContext):
+    # Exit a parse tree produced by RParser#kwrd.
+    def exitKwrd(self, ctx:RParser.KwrdContext):
         pass
 
 
     # Enter a parse tree produced by RParser#atom.
     def enterAtom(self, ctx:RParser.AtomContext):
-        pass
+        if self.vardec:
+            self.vardec = has_child(ctx)
+
 
     # Exit a parse tree produced by RParser#atom.
     def exitAtom(self, ctx:RParser.AtomContext):
-        pass
-
-
-    # Enter a parse tree produced by RParser#suite.
-    def enterSuite(self, ctx:RParser.SuiteContext):
-        pass
-
-    # Exit a parse tree produced by RParser#suite.
-    def exitSuite(self, ctx:RParser.SuiteContext):
         pass
 
 
@@ -179,3 +199,10 @@ class RListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by RParser#assop.
+    def enterAssop(self, ctx:RParser.AssopContext):
+        ctx.text = '->'
+
+    # Exit a parse tree produced by RParser#assop.
+    def exitAssop(self, ctx:RParser.AssopContext):
+        ctx.text = ' -> '
