@@ -122,20 +122,13 @@ class DefaultErrorStrategy(ErrorStrategy):
         self.beginErrorCondition(recognizer)
         if isinstance( e, NoViableAltException ):
             self.reportNoViableAlternative(recognizer, e)
-            raise Exception("1")
         elif isinstance( e, InputMismatchException ):
             self.reportInputMismatch(recognizer, e)
-            raise Exception("1")
-
         elif isinstance( e, FailedPredicateException ):
             self.reportFailedPredicate(recognizer, e)
-            raise Exception("1")
-
         else:
             print("unknown recognition error type: " + type(e).__name__)
             recognizer.notifyErrorListeners(e.message, e.offendingToken, e)
-            raise Exception("1")
-            
 
     #
     # {@inheritDoc}

@@ -6,7 +6,7 @@ else:
     from RParser import RParser
 
 # This class defines a complete listener for a parse tree produced by RParser.
-class RListener(ParseTreeListener):
+class RWriter(ParseTreeListener):
 
     # Enter a parse tree produced by RParser#file_input.
     def enterFile_input(self, ctx:RParser.File_inputContext):
@@ -35,12 +35,84 @@ class RListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by RParser#function_stmt.
+    def enterFunction_stmt(self, ctx:RParser.Function_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#function_stmt.
+    def exitFunction_stmt(self, ctx:RParser.Function_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#if_stmt.
+    def enterIf_stmt(self, ctx:RParser.If_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#if_stmt.
+    def exitIf_stmt(self, ctx:RParser.If_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#for_stmt.
+    def enterFor_stmt(self, ctx:RParser.For_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#for_stmt.
+    def exitFor_stmt(self, ctx:RParser.For_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#while_stmt.
+    def enterWhile_stmt(self, ctx:RParser.While_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#while_stmt.
+    def exitWhile_stmt(self, ctx:RParser.While_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#suite.
+    def enterSuite(self, ctx:RParser.SuiteContext):
+        pass
+
+    # Exit a parse tree produced by RParser#suite.
+    def exitSuite(self, ctx:RParser.SuiteContext):
+        pass
+
+
     # Enter a parse tree produced by RParser#simple_stmt.
     def enterSimple_stmt(self, ctx:RParser.Simple_stmtContext):
         pass
 
     # Exit a parse tree produced by RParser#simple_stmt.
     def exitSimple_stmt(self, ctx:RParser.Simple_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#help_stmt.
+    def enterHelp_stmt(self, ctx:RParser.Help_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#help_stmt.
+    def exitHelp_stmt(self, ctx:RParser.Help_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#kwrd_stmt.
+    def enterKwrd_stmt(self, ctx:RParser.Kwrd_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#kwrd_stmt.
+    def exitKwrd_stmt(self, ctx:RParser.Kwrd_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by RParser#assingment_stmt.
+    def enterAssingment_stmt(self, ctx:RParser.Assingment_stmtContext):
+        pass
+
+    # Exit a parse tree produced by RParser#assingment_stmt.
+    def exitAssingment_stmt(self, ctx:RParser.Assingment_stmtContext):
         pass
 
 
@@ -53,12 +125,12 @@ class RListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RParser#assop.
-    def enterAssop(self, ctx:RParser.AssopContext):
+    # Enter a parse tree produced by RParser#logical.
+    def enterLogical(self, ctx:RParser.LogicalContext):
         pass
 
-    # Exit a parse tree produced by RParser#assop.
-    def exitAssop(self, ctx:RParser.AssopContext):
+    # Exit a parse tree produced by RParser#logical.
+    def exitLogical(self, ctx:RParser.LogicalContext):
         pass
 
 
@@ -98,21 +170,12 @@ class RListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RParser#element.
-    def enterElement(self, ctx:RParser.ElementContext):
+    # Enter a parse tree produced by RParser#kwrd.
+    def enterKwrd(self, ctx:RParser.KwrdContext):
         pass
 
-    # Exit a parse tree produced by RParser#element.
-    def exitElement(self, ctx:RParser.ElementContext):
-        pass
-
-
-    # Enter a parse tree produced by RParser#id_name.
-    def enterId_name(self, ctx:RParser.Id_nameContext):
-        pass
-
-    # Exit a parse tree produced by RParser#id_name.
-    def exitId_name(self, ctx:RParser.Id_nameContext):
+    # Exit a parse tree produced by RParser#kwrd.
+    def exitKwrd(self, ctx:RParser.KwrdContext):
         pass
 
 
@@ -122,15 +185,6 @@ class RListener(ParseTreeListener):
 
     # Exit a parse tree produced by RParser#atom.
     def exitAtom(self, ctx:RParser.AtomContext):
-        pass
-
-
-    # Enter a parse tree produced by RParser#suite.
-    def enterSuite(self, ctx:RParser.SuiteContext):
-        pass
-
-    # Exit a parse tree produced by RParser#suite.
-    def exitSuite(self, ctx:RParser.SuiteContext):
         pass
 
 
@@ -179,3 +233,10 @@ class RListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by RParser#assop.
+    def enterAssop(self, ctx:RParser.AssopContext):
+        pass
+
+    # Exit a parse tree produced by RParser#assop.
+    def exitAssop(self, ctx:RParser.AssopContext):
+        pass

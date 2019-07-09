@@ -3,10 +3,10 @@ import sys
 import os
 import mpmath as mp
 
-from antlr_control import antlr_python, antlr_puffin
+from antlr_control import *
 from useful import getSigFig
 
-sys.tracebacklimit = 0
+# sys.tracebacklimit = 0
 ## Define errors
 class Errm(Exception):
     pass
@@ -19,6 +19,8 @@ def method1(file,puffin,output,language):
 
     if language == 'python':
         antlr_python.write(file,output,puffin_)
+    elif language == 'R':
+        antlr_R.write(file,output,puffin_)
 
     # Try to delete temp files
     # try: os.remove(puffin_)
@@ -29,6 +31,8 @@ def method2(file,output,language):
 
     if language == 'python':
         antlr_python.read(file,output)
+    elif language == 'R':
+        antlr_R.read(file,output)
 
 
 def method3(file,output,language):
@@ -42,6 +46,11 @@ def method3(file,output,language):
         method4(puffin,puffin2)
         antlr_puffin.read(puffin2,puffin_,language)
         antlr_python.write(file,output,puffin_)
+    elif language == 'R':
+        antlr_R.read(file,puffin)
+        method4(puffin,puffin2)
+        antlr_puffin.read(puffin2,puffin_,language)
+        antlr_R.write(file,output,puffin_)
 
     # Try to delete temp files
     try:
@@ -145,6 +154,8 @@ def puffinComp(file,output,puffin,getpf,auto):
 
         fileName, fileExt = file.split('.')
 
+        fileExt = fileExt.lower()
+
         if output is None:
             if getpf:
                 output = fileName +'.pf'
@@ -153,6 +164,8 @@ def puffinComp(file,output,puffin,getpf,auto):
 
         if fileExt == 'py':
             language = 'python'
+        elif fileExt == 'r':
+            language = 'R'
         else:
             raise Errm('I don\'t know that language!')
 
