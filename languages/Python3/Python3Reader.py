@@ -18,7 +18,7 @@ class Python3Reader(ParseTreeListener):
 
     ## Functions
     def enterFuncdef(self, ctx:Python3Parser.FuncdefContext):
-        self.funname = child_catcher(ctx,list=True)[1]
+        self.funname = child_catcher(ctx,'Python3',list=True)[1]
     def exitFuncdef(self, ctx:Python3Parser.FuncdefContext):
         self.funname = ""
 

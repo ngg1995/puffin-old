@@ -7,7 +7,6 @@ from typing.io import TextIO
 from antlr4.BufferedTokenStream import TokenStream
 from antlr4.CommonTokenFactory import TokenFactory
 from antlr4.error.ErrorStrategy import DefaultErrorStrategy
-from antlr4.error.ErrorStrategy import BailErrorStrategy
 from antlr4.InputStream import InputStream
 from antlr4.Recognizer import Recognizer
 from antlr4.RuleContext import RuleContext
@@ -57,7 +56,7 @@ class Parser (Recognizer):
         self._output = output
         # The error handling strategy for the parser. The default value is a new
         # instance of {@link DefaultErrorStrategy}.
-        self._errHandler = BailErrorStrategy()
+        self._errHandler = DefaultErrorStrategy()
         self._precedenceStack = list()
         self._precedenceStack.append(0)
         # The {@link ParserRuleContext} object for the currently executing rule.
