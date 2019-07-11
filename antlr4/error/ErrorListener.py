@@ -13,16 +13,16 @@ import sys
 class ErrorListener(object):
 
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        raise Exception('syntax error')
+        pass
 
     def reportAmbiguity(self, recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs):
-        raise Exception('ambiguity error')
+        pass
 
     def reportAttemptingFullContext(self, recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs):
-        raise Exception('AttemptingFullContext error')
+        pass
 
     def reportContextSensitivity(self, recognizer, dfa, startIndex, stopIndex, prediction, configs):
-        raise Exception('ContextSensitivity error')
+        pass
 
 class ConsoleErrorListener(ErrorListener):
     #

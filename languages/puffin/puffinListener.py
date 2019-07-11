@@ -10,7 +10,7 @@ from useful import child_catcher
 import mpmath as mp
 
 sigfigs = lambda x: len(str(x).replace('.',''))
-getNumber = lambda n, ctx: child_catcher(ctx,list=True)[n]
+getNumber = lambda n, ctx: child_catcher(ctx,'puffin',list=True)[n]
 
 # This class defines a complete listener for a parse tree produced by puffinParser.
 class puffinListener(ParseTreeListener):
@@ -24,12 +24,12 @@ class puffinListener(ParseTreeListener):
 
     # Exit a parse tree produced by puffinParser#file_input.
     def exitFile_input(self, ctx:puffinParser.File_inputContext):
-        self.output.write(child_catcher(ctx,noTerm = True))
+        self.output.write(child_catcher(ctx,'puffin',noTerm = True))
 
     # Exit a parse tree produced by puffinParser#assignment.
     def exitAssignment(self, ctx:puffinParser.AssignmentContext):
 
-        ctx.text = child_catcher(ctx)
+        ctx.text = child_catcher(ctx,'puffin')
 
     def enterAssignment(self, ctx:puffinParser.AssignmentContext):
         childtypes = [x.__class__.__name__ for x in ctx.children]
@@ -39,28 +39,30 @@ class puffinListener(ParseTreeListener):
 
     # Exit a parse tree produced by puffinParser#collection.
     def exitCollection(self, ctx:puffinParser.CollectionContext):
-        ctx.text = child_catcher(ctx)
+        ctx.text = child_catcher(ctx,'puffin')
 
 
     # Exit a parse tree produced by puffinParser#atom.
     def exitAtom(self, ctx:puffinParser.AtomContext):
-        ctx.text = child_catcher(ctx)
+        ctx.text = child_catcher(ctx,'puffin')
 
 
     # Exit a parse tree produced by puffinParser#interval.
     def exitInterval(self, ctx:puffinParser.IntervalContext):
         if self.target == 'Python3':
-            ctx.text = child_catcher(ctx).replace('[','puffin.interval(').replace(']',')')
+            ctx.text = child_catcher(ctx,'puffin').replace('[','puffin.interval(').replace(']',')')
+        if self.target == 'R':
+            ctx.text = child_catcher(ctx,'puffin').replace('[','interval(').replace(']',')')
 
 
     # Exit a parse tree produced by puffinParser#interval_basic.
     def exitInterval_basic(self, ctx:puffinParser.Interval_basicContext):
-        ctx.text = child_catcher(ctx)
+        ctx.text = child_catcher(ctx,'puffin')
 
 
     # Exit a parse tree produced by puffinParser#interval_plusminus.
     def exitInterval_plusminus(self, ctx:puffinParser.Interval_plusminusContext):
-        asList = child_catcher(ctx, list = True)
+        asList = child_catcher(ctx,'puffin', list = True)
         a = mp.mpf(asList[1])
         b = mp.mpf(asList[3])
 
@@ -69,7 +71,7 @@ class puffinListener(ParseTreeListener):
 
     # Exit a parse tree produced by puffinParser#interval_pct.
     def exitInterval_pct(self, ctx:puffinParser.Interval_pctContext):
-        asList = child_catcher(ctx, list = True)
+        asList = child_catcher(ctx,'puffin', list = True)
         a = mp.mpf(asList[1])
         b = mp.mpf(asList[3])/100
 
@@ -82,10 +84,19 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = ctx.getText().replace('list(','[').replace(')',']')
 
+        elif self.target == 'R':
+
+            ctx.text = ctx.getText().replace('list(','[').replace(')',']')
+
+
 
     # Exit a parse tree produced by puffinParser#touple_stmt.
     def exitTouple_stmt(self, ctx:puffinParser.Touple_stmtContext):
         if self.target == 'Python3':
+
+            ctx.text = ctx.getText().replace('touple','')
+
+        elif self.target == 'R':
 
             ctx.text = ctx.getText().replace('touple','')
 
@@ -102,7 +113,7 @@ class puffinListener(ParseTreeListener):
 
 
     def exitElement(self, ctx:puffinParser.ElementContext):
-        ctx.text = child_catcher(ctx)
+        ctx.text = child_catcher(ctx,'puffin')
 
         if not self.directChange:
             if '<<' in ctx.text:
@@ -116,33 +127,51 @@ class puffinListener(ParseTreeListener):
 
     def exitBeta(self,ctx:puffinParser.BetaContext):
 
-        asList = child_catcher(ctx,list = True)
+        asList = child_catcher(ctx,'puffin',list = True)
 
-        asList[0] = 'puffin.probdist.beta'
+        if self.target == 'Python3':
+
+            asList[0] = 'puffin.beta'
+
+        elif self.target == 'R':
+
+            pass # No syntax change
 
         ctx.text = ''
         for i in asList: ctx.text += i
 
     def exitNormal(self,ctx:puffinParser.NormalContext):
 
-        asList = child_catcher(ctx,list = True)
+        asList = child_catcher(ctx,'puffin',list = True)
 
-        asList[0] = 'puffin.probdist.normal'
+        if self.target == 'Python3':
+
+            asList[0] = 'puffin.normal'
+
+        elif self.target == 'R':
+
+            pass # No syntax change
 
         ctx.text = ''
         for i in asList: ctx.text += i
 
     def exitUniform(self,ctx:puffinParser.UniformContext):
 
-        asList = child_catcher(ctx,list = True)
+        asList = child_catcher(ctx,'puffin',list = True)
 
-        asList[0] = 'puffin.probdist.uniform'
+        if self.target == 'Python3':
+
+            asList[0] = 'puffin.uniform'
+
+        elif self.target == 'R':
+
+            pass # No syntax change
 
         ctx.text = ''
         for i in asList: ctx.text += i
 
     def exitPdistribution(self, ctx:puffinParser.PdistributionContext):
-        ctx.text = child_catcher(ctx)
+        ctx.text = child_catcher(ctx,'puffin')
 
     # Exit a parse tree produced by puffinParser#about.
     def exitAbout(self, ctx:puffinParser.AboutContext):
@@ -159,6 +188,10 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
 
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
     # Exit a parse tree produced by puffinParser#Around.
     def exitAround(self, ctx:puffinParser.AroundContext):
         # Statement is of form x -> around 10
@@ -173,6 +206,11 @@ class puffinListener(ParseTreeListener):
         if self.target == 'Python3':
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
 
     # Exit a parse tree produced by puffinParser#count.
     def exitCount(self, ctx:puffinParser.CountContext):
@@ -191,6 +229,11 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
 
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
+
     # Exit a parse tree produced by puffinParser#Over.
     def exitOver(self, ctx:puffinParser.OverContext):
         # Statement is of form x -> over 10
@@ -206,6 +249,11 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
 
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
+
     def exitAlmost(self, ctx:puffinParser.AlmostContext):
         # Statement is of form x -> over 10
         x = getNumber(1,ctx)
@@ -219,6 +267,11 @@ class puffinListener(ParseTreeListener):
         if self.target == 'Python3':
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
 
     # Exit a parse tree produced by puffinParser#Over.
     def exitBelow(self, ctx:puffinParser.BelowContext):
@@ -235,6 +288,11 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
 
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
+
     # Exit a parse tree produced by puffinParser#exitAbove.
     def exitAbove(self, ctx:puffinParser.AboveContext):
         # Statement is of form x -> above 10
@@ -249,6 +307,11 @@ class puffinListener(ParseTreeListener):
         if self.target == 'Python3':
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
 
     # Exit a parse tree produced by puffinParser#At_most.
     def exitAt_most(self, ctx:puffinParser.At_mostContext):
@@ -268,6 +331,11 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
 
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
+
     # Exit a parse tree produced by puffinParser#At_least.
     def exitAt_least(self, ctx:puffinParser.At_mostContext):
         # Statement is of form x -> at least 10
@@ -281,6 +349,11 @@ class puffinListener(ParseTreeListener):
         if self.target == 'Python3':
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
 
     # Exit a parse tree produced by puffinParser#At_least.
     def exitOrder(self, ctx:puffinParser.OrderContext):
@@ -298,6 +371,11 @@ class puffinListener(ParseTreeListener):
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
 
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
+
+
     def exitBetween(self, ctx:puffinParser.BetweenContext):
 
         lower = getNumber(1,ctx)
@@ -307,3 +385,7 @@ class puffinListener(ParseTreeListener):
         if self.target == 'Python3':
 
             ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+
+        elif self.target == 'R':
+
+            ctx.text = 'interval(%s,%s)' %(lower,higher)
