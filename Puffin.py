@@ -18,7 +18,7 @@ def method1(file,puffin,output,language):
     antlr_puffin.read(puffin,puffin_,language)
 
     if language == 'python':
-        antlr_python.write(file,output,puffin_)
+        antlr_Python3.write(file,output,puffin_)
     elif language == 'R':
         antlr_R.write(file,output,puffin_)
 
@@ -30,7 +30,7 @@ def method1(file,puffin,output,language):
 def method2(file,output,language):
 
     if language == 'python':
-        antlr_python.read(file,output)
+        antlr_Python3.read(file,output)
     elif language == 'R':
         antlr_R.read(file,output)
 
@@ -42,10 +42,10 @@ def method3(file,output,language):
     puffin_ = 'temp.pf_'
 
     if language == 'python':
-        antlr_python.read(file,puffin)
+        antlr_Python3.read(file,puffin)
         method4(puffin,puffin2)
         antlr_puffin.read(puffin2,puffin_,language)
-        antlr_python.write(file,output,puffin_)
+        antlr_Python3.write(file,output,puffin_)
     elif language == 'R':
         antlr_R.read(file,puffin)
         method4(puffin,puffin2)
