@@ -6,13 +6,14 @@ import mpmath as mp
 from antlr_control import *
 from useful import getSigFig
 
+
 # sys.tracebacklimit = 0
 ## Define errors
 class Errm(Exception):
     pass
 
-def method1(file,puffin,output,language):
-
+def full_compile(file,puffin,output,language):
+    ## Takes a input file and a puffin file and compiler the puffin Uncertainties in to the input file
     puffin_ = puffin+language
 
     antlr_puffin.read(puffin,puffin_,language)
@@ -23,19 +24,23 @@ def method1(file,puffin,output,language):
         antlr_R.write(file,output,puffin_)
 
     # Try to delete temp files
-    # try: os.remove(puffin_)
-    # except: pass
+    try: os.remove(puffin_)
+    except: pass
+
+    print('Compiled')
 
 
-def method2(file,output,language):
-
+def get_puffin(file,output,language):
+    # Reads a script and outputs a puffin file
     if language == 'python':
         antlr_Python3.read(file,output)
     elif language == 'R':
         antlr_R.read(file,output)
 
+    print('Created puffin file')
 
-def method3(file,output,language):
+def auto_uq_compile(file,output,language):
+    # Fully automatic uncertainty compile
 
     puffin = 'temp.pf'
     puffin2 = 'temp2.pf'
@@ -43,12 +48,13 @@ def method3(file,output,language):
 
     if language == 'python':
         antlr_Python3.read(file,puffin)
-        method4(puffin,puffin2)
+        add_in_auto_uq(puffin,puffin2)
         antlr_puffin.read(puffin2,puffin_,language)
         antlr_Python3.write(file,output,puffin_)
+
     elif language == 'R':
         antlr_R.read(file,puffin)
-        method4(puffin,puffin2)
+        add_in_auto_uq(puffin,puffin2)
         antlr_puffin.read(puffin2,puffin_,language)
         antlr_R.write(file,output,puffin_)
 
@@ -59,9 +65,8 @@ def method3(file,output,language):
         os.remove(puffin_)
     except: pass
 
-
-def method4(puffin,output):
-
+def add_in_auto_uq(puffin,output):
+    # Adds automatic uncertainty to puffin file
     vars = [line for line in open(puffin,'r')]
     new_vars = ""
     for var in vars:
@@ -83,15 +88,292 @@ def method4(puffin,output):
     with open(output,'w') as f:
         print(new_vars,file = f)
 
-def method5(file,output,language):
+    print('Automatically calculated uncertainty')
 
+def output_auto_script(file,output,language):
+    # outputs puffin file with auto uq
     temp = 'temp.pf'
-    method2(file,temp,language)
-    method4(temp,output)
+    get_puffin(file,temp,language)
+    add_in_auto_uq(temp,output)
 
     try:
         os.remove(temp)
     except: pass
+
+def user_control():
+
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle, the pyInstaller bootloader
+        # extends the sys module by a flag frozen=True and sets the app
+        # path into variable _MEIPASS'. WHICH STILL DOESNT WORK
+        directory = os.path.dirname(sys.argv[0])
+    else:
+        directory = os.path.dirname(os.path.abspath(__file__))
+
+    running = True
+    file = None
+    puffin = None
+    language = None
+    output = None
+    file_long = None
+    puffin_long = None
+    output_long = None
+
+    infolder = os.listdir(directory)
+
+    # Change to current folder
+    os.chdir(directory)
+
+    if sys.platform.startswith('darwin'):
+        os.system('clear')
+
+    print('Welcome to Puffin\n\n')
+    print('Working directory: '+directory)
+    print('To enter input script:  \"file=filename\"')
+    print('To enter puffin script: \"puffin=filename\"')
+    print('To specify language: \"language=language\" \n')
+    print('Entering \"output = name\" define a output name')
+    print('To compile puffin script into input script: \"compile\"')
+    print('To compile using automatic uncertainty analysis: \"auto\"')
+    print('To generate puffin script from input script: \"getpf\"\n')
+    print('To get generate puffin script with automatic uncertainty analysis: \"autopf\"')
+    print('\";\" can be used to enter multiple commands at once')
+    print('i.e. \"file=example.py; puffin=uq.pf; output=name.py; compile\"\n\n')
+    print('Entering \"info\" will list all defined files and availible options')
+    print('To exit enter \"quit\"\n\n')
+
+    while running:
+
+        line = input('> ')
+
+        commands = line.split(';')
+
+        for command in commands:
+
+            command = command.strip()
+
+            if command == 'quit':
+                #Stop running
+                running = False
+
+
+            elif command.startswith('file'):
+                # Find filename
+                try:
+
+                    file = command.split('=')[1].strip()
+                    print('Loaded: '+file)
+                    file_long = directory + '/' + file
+
+                except:
+                    print('Can\'t detect filename')
+
+            elif command.startswith('puffin'):
+                # Find puffin file name
+                try:
+
+                    puffin = command.split('=')[1].strip()
+                    print('Loaded: '+puffin)
+                    file_long = directory + '/' + puffin
+
+                except:
+
+                    print('Can\'t detect puffin filename')
+
+            elif command.startswith('language'):
+                # Find language
+                try:
+
+                    language = command.split('=')[1].strip()
+
+                except:
+
+                    print('Can\'t detect language')
+
+            elif command.startswith('output'):
+                # Find language
+                try:
+
+                    output = command.split('=')[1].strip()
+
+                except:
+
+                    print('Can\'t detect output name')
+
+            elif command == 'compile':
+
+                if file is None:
+                    # Cannot compile if no input file
+                    print('ERROR: No input file')
+                elif puffin is None:
+                    # Cannot compile if no puffin file
+                    print('ERROR: No puffin file')
+                else:
+
+                    # If no output file need to make one
+                    if output is None:
+                        output = file.replace('.','_pf.')
+
+                    # If no entered language then need to define one
+                    if language is None:
+                        fileName, fileExt = file.split('.')
+                        fileExt = fileExt.lower()
+                        if fileExt == 'py':
+                            language = 'python'
+                        elif fileExt == 'r':
+                            language = 'R'
+                        else:
+                            print('ERROR: I don\'t know the language')
+
+                    if language is not None:
+                        # Can do compiles
+                        full_compile(file,puffin,output,language)
+                        print('Compiled')
+
+            elif command == 'getpf':
+
+                if file is None:
+                    # Cannot compile if no input file
+                    print('ERROR: No input file')
+
+                else:
+                    fileName, fileExt = file.split('.')
+                    fileExt = fileExt.lower()
+                    if language == None:
+                        if fileExt == 'py':
+                            language = 'python'
+                        elif fileExt == 'r':
+                            language = 'R'
+                        else:
+                            print('ERROR: I don\'t know the language')
+
+                    if output is None:
+                        if getpf:
+                            output = fileName +'.pf'
+
+                    if language is not None:
+                        # Can get puffin file
+                        get_puffin(file,output,language)
+
+                        puffin = output
+                        print('Created '+output)
+
+            elif command == 'auto':
+
+                if file is not None:
+
+                    fileName, fileExt = file.split('.')
+                    fileExt = fileExt.lower()
+
+                    if language is None:
+
+                        if fileExt == 'py':
+                            language = 'python'
+                        elif fileExt == 'r':
+                            language = 'R'
+                        else:
+                            print('ERROR: I don\'t know the language')
+
+                    if output is None:
+                        output = file.replace('.','_pf.')
+
+                    if language is not None:
+
+                        auto_uq_compile(file,output,language)
+
+                elif puffin is not None:
+
+                    if output is None:
+
+                        output = puffin.replace('.','_auto.')
+
+                    add_in_auto_uq(puffin,output)
+
+                else: print("I don\'t know what you want me to do")
+
+            elif command == 'autopf':
+
+                if file is not None and puffin is not None:
+                    print('AMBIGUITY WARNING: Will generate auto puffin file from %s not %s' %(file,puffin))
+                    print('                   To get from %s use \"autopf-pf\"' %(puffin))
+
+                if file is not None:
+
+                    fileName, fileExt = file.split('.')
+                    fileExt = fileExt.lower()
+
+                    if language is None:
+
+                        if fileExt == 'py':
+                            language = 'python'
+                        elif fileExt == 'r':
+                            language = 'R'
+                        else:
+                            print('ERROR: I don\'t know the language')
+
+                    if output is None:
+                        output = file.replace('.','_pf.')
+
+                    if language is not None:
+
+                        output_auto_script(file,output,language)
+
+                elif puffin is not None:
+
+                    if output is None:
+
+                        output = puffin.replace('.','_auto.')
+
+                    add_in_auto_uq(puffin,output)
+
+                else: print("I don\'t know what you want me to do")
+
+            elif command == 'info':
+
+                if directory is not None:
+                    print('Working directory: '+directory)
+
+                if file is not None:
+                    print('file = '+file)
+                else:
+                    print('No input file')
+
+                if puffin is not None:
+                    print('puffin = '+puffin)
+                else:
+                    print('No puffin language')
+
+                if language is not None:
+                    print('language = '+language)
+                else:
+                    print('Language unknown')
+
+                if output is not None:
+                    print('output = '+output)
+                else:
+                    print('No output name specified')
+
+                print('\nMethods availible:')
+
+                if file is not None and puffin is not None:
+                    print('compile')
+                    print('getpf')
+                    print('auto')
+                    print('autopf')
+                elif puffin is None and file is not None:
+                    print('getpf')
+                    print('auto')
+                    print('autopf')
+                elif file is None and puffin is not None:
+                    print('auto')
+                    print('autopf')
+                else:
+                    print('None availible')
+
+            elif command == 'cd':
+                directory = ask_dir()
+
+            else: print('ERROR: Unkown command')
 
 @click.command()
 
@@ -103,12 +385,19 @@ def method5(file,output,language):
 def puffinComp(file,output,puffin,getpf,auto):
     '''Uncertainty Compiler'''
 
+    # Method 1 -> full_compile
+    # Method 2 -> get_puffin
+    # Method 3 -> auto_uq_compile
+    # Method 4 -> add_in_auto_uq
+    # Method 5 -> output_auto_script
+
     # Find what the user is trying to do or raise an error
     if file is None:
 
         if puffin is None:
 
-            raise Errm("\nI can\'t do anything without input files")
+            user_control()
+            method = 0
 
         elif not auto:
 
@@ -171,29 +460,30 @@ def puffinComp(file,output,puffin,getpf,auto):
 
         if method == 1:
 
-            method1(file,puffin,output,language)
+            full_compile(file,puffin,output,language)
 
         elif method == 2:
 
-            method2(file,output,language)
+            get_puffin(file,output,language)
 
         elif method == 3:
 
-            method3(file,output,language)
+            auto_uq_compile(file,output,language)
 
         elif method == 5:
 
-            method5(file,output,language)
+            output_auto_script(file,output,language)
 
-    else:
+    elif method == 4:
 
         if output is None:
 
-            output = puffin.replace('.','2.')
+            output = puffin.replace('.','_auto.')
 
-        method4(puffin,output)
+        add_in_auto_uq(puffin,output)
 
 
 
 if __name__ == '__main__':
+
     puffinComp()
