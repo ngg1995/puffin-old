@@ -173,10 +173,21 @@ def getSigFig(number):
 
 def read_uncert(file):
     uncerts = {}
+    changes = {}
     with open(file,'r') as f:
         for line in f:
             if line.strip() != "":
-
                 parts = [x.strip() for x in line.split('->')]
-                uncerts[parts[0]] = parts[1]
-    return uncerts
+
+                if '«' in line:
+
+                    changes[parts[0].replace("«",'').replace("»","")] = parts[1]
+                else:
+
+                    if parts[0] in uncerts.keys():
+
+                        print("%s has been reassinged multiple times. Only the last entry will be used" %(parts[0]))
+
+                    uncerts[parts[0]] = parts[1]
+
+    return uncerts,changes

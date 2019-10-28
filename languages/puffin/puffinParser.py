@@ -1,101 +1,106 @@
-# Generated from puffin.g4 by ANTLR 4.7.1
+# Generated from puffin.g4 by ANTLR 4.7.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
 from typing.io import TextIO
 import sys
 
+
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3(")
-        buf.write("\u00ea\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3H")
+        buf.write("\u00ee\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
         buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36")
-        buf.write("\4\37\t\37\4 \t \3\2\3\2\3\2\7\2D\n\2\f\2\16\2G\13\2\3")
-        buf.write("\2\3\2\3\3\3\3\5\3M\n\3\3\3\3\3\3\3\5\3R\n\3\3\3\3\3\3")
-        buf.write("\4\3\4\3\4\3\4\3\4\5\4[\n\4\3\5\3\5\3\5\3\5\3\6\3\6\3")
-        buf.write("\6\5\6d\n\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3")
-        buf.write("\7\3\7\3\7\3\7\3\7\5\7u\n\7\3\b\3\b\3\b\5\bz\n\b\3\t\3")
-        buf.write("\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3")
-        buf.write("\13\3\13\3\13\3\13\3\f\3\f\3\f\5\f\u0091\n\f\3\r\3\r\3")
-        buf.write("\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17")
-        buf.write("\3\17\3\20\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21")
-        buf.write("\3\22\3\22\3\22\3\23\3\23\3\23\3\24\3\24\3\24\3\25\3\25")
-        buf.write("\3\25\3\26\3\26\3\26\3\27\3\27\3\27\3\30\3\30\3\30\3\31")
-        buf.write("\3\31\3\31\3\32\3\32\3\32\3\33\3\33\3\33\3\34\3\34\3\34")
-        buf.write("\3\34\3\34\3\35\3\35\7\35\u00d1\n\35\f\35\16\35\u00d4")
-        buf.write("\13\35\3\36\3\36\3\36\3\37\3\37\3 \3 \5 \u00dd\n \3 \7")
-        buf.write(" \u00e0\n \f \16 \u00e3\13 \7 \u00e5\n \f \16 \u00e8\13")
-        buf.write(" \3 \2\2!\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&")
-        buf.write("(*,.\60\62\64\668:<>\2\6\4\2\7\7!!\3\2\25\26\4\2\7\7\27")
-        buf.write("\30\3\2\"#\2\u00e9\2E\3\2\2\2\4L\3\2\2\2\6U\3\2\2\2\b")
-        buf.write("\\\3\2\2\2\nc\3\2\2\2\ft\3\2\2\2\16y\3\2\2\2\20{\3\2\2")
-        buf.write("\2\22\u0081\3\2\2\2\24\u0087\3\2\2\2\26\u0090\3\2\2\2")
-        buf.write("\30\u0092\3\2\2\2\32\u0097\3\2\2\2\34\u009c\3\2\2\2\36")
-        buf.write("\u00a1\3\2\2\2 \u00a6\3\2\2\2\"\u00ab\3\2\2\2$\u00ae\3")
-        buf.write("\2\2\2&\u00b1\3\2\2\2(\u00b4\3\2\2\2*\u00b7\3\2\2\2,\u00ba")
-        buf.write("\3\2\2\2.\u00bd\3\2\2\2\60\u00c0\3\2\2\2\62\u00c3\3\2")
-        buf.write("\2\2\64\u00c6\3\2\2\2\66\u00c9\3\2\2\28\u00ce\3\2\2\2")
-        buf.write(":\u00d5\3\2\2\2<\u00d8\3\2\2\2>\u00e6\3\2\2\2@D\5\4\3")
-        buf.write("\2AD\5\6\4\2BD\7\'\2\2C@\3\2\2\2CA\3\2\2\2CB\3\2\2\2D")
-        buf.write("G\3\2\2\2EC\3\2\2\2EF\3\2\2\2FH\3\2\2\2GE\3\2\2\2HI\7")
-        buf.write("\2\2\3I\3\3\2\2\2JM\58\35\2KM\5<\37\2LJ\3\2\2\2LK\3\2")
-        buf.write("\2\2MN\3\2\2\2NQ\7\3\2\2OR\5\f\7\2PR\5\n\6\2QO\3\2\2\2")
-        buf.write("QP\3\2\2\2RS\3\2\2\2ST\7\'\2\2T\5\3\2\2\2UV\58\35\2VZ")
-        buf.write("\7\4\2\2W[\5\b\5\2X[\5\f\7\2Y[\5\n\6\2ZW\3\2\2\2ZX\3\2")
-        buf.write("\2\2ZY\3\2\2\2[\7\3\2\2\2\\]\58\35\2]^\7\5\2\2^_\58\35")
-        buf.write("\2_\t\3\2\2\2`d\5\36\20\2ad\5 \21\2bd\5<\37\2c`\3\2\2")
-        buf.write("\2ca\3\2\2\2cb\3\2\2\2d\13\3\2\2\2eu\7#\2\2fu\7\37\2\2")
-        buf.write("gu\5\16\b\2hu\5\26\f\2iu\5\"\22\2ju\5$\23\2ku\5&\24\2")
-        buf.write("lu\5(\25\2mu\5*\26\2nu\5,\27\2ou\5.\30\2pu\5\60\31\2q")
-        buf.write("u\5\62\32\2ru\5\64\33\2su\5\66\34\2te\3\2\2\2tf\3\2\2")
-        buf.write("\2tg\3\2\2\2th\3\2\2\2ti\3\2\2\2tj\3\2\2\2tk\3\2\2\2t")
-        buf.write("l\3\2\2\2tm\3\2\2\2tn\3\2\2\2to\3\2\2\2tp\3\2\2\2tq\3")
-        buf.write("\2\2\2tr\3\2\2\2ts\3\2\2\2u\r\3\2\2\2vz\5\20\t\2wz\5\22")
-        buf.write("\n\2xz\5\24\13\2yv\3\2\2\2yw\3\2\2\2yx\3\2\2\2z\17\3\2")
-        buf.write("\2\2{|\7\6\2\2|}\7#\2\2}~\7\7\2\2~\177\7#\2\2\177\u0080")
-        buf.write("\7\b\2\2\u0080\21\3\2\2\2\u0081\u0082\7\6\2\2\u0082\u0083")
-        buf.write("\7#\2\2\u0083\u0084\7!\2\2\u0084\u0085\7#\2\2\u0085\u0086")
-        buf.write("\7\b\2\2\u0086\23\3\2\2\2\u0087\u0088\7\6\2\2\u0088\u0089")
-        buf.write("\7#\2\2\u0089\u008a\t\2\2\2\u008a\u008b\5:\36\2\u008b")
-        buf.write("\u008c\7\b\2\2\u008c\25\3\2\2\2\u008d\u0091\5\30\r\2\u008e")
-        buf.write("\u0091\5\32\16\2\u008f\u0091\5\34\17\2\u0090\u008d\3\2")
-        buf.write("\2\2\u0090\u008e\3\2\2\2\u0090\u008f\3\2\2\2\u0091\27")
-        buf.write("\3\2\2\2\u0092\u0093\7\32\2\2\u0093\u0094\7\t\2\2\u0094")
-        buf.write("\u0095\5> \2\u0095\u0096\7\n\2\2\u0096\31\3\2\2\2\u0097")
-        buf.write("\u0098\7\33\2\2\u0098\u0099\7\t\2\2\u0099\u009a\5> \2")
-        buf.write("\u009a\u009b\7\n\2\2\u009b\33\3\2\2\2\u009c\u009d\7\34")
-        buf.write("\2\2\u009d\u009e\7\t\2\2\u009e\u009f\5> \2\u009f\u00a0")
-        buf.write("\7\n\2\2\u00a0\35\3\2\2\2\u00a1\u00a2\7\35\2\2\u00a2\u00a3")
-        buf.write("\7\t\2\2\u00a3\u00a4\5> \2\u00a4\u00a5\7\n\2\2\u00a5\37")
-        buf.write("\3\2\2\2\u00a6\u00a7\7\36\2\2\u00a7\u00a8\7\t\2\2\u00a8")
-        buf.write("\u00a9\5> \2\u00a9\u00aa\7\n\2\2\u00aa!\3\2\2\2\u00ab")
-        buf.write("\u00ac\7\f\2\2\u00ac\u00ad\7#\2\2\u00ad#\3\2\2\2\u00ae")
-        buf.write("\u00af\7\r\2\2\u00af\u00b0\7#\2\2\u00b0%\3\2\2\2\u00b1")
-        buf.write("\u00b2\7\16\2\2\u00b2\u00b3\7#\2\2\u00b3\'\3\2\2\2\u00b4")
-        buf.write("\u00b5\7\17\2\2\u00b5\u00b6\7#\2\2\u00b6)\3\2\2\2\u00b7")
-        buf.write("\u00b8\7\20\2\2\u00b8\u00b9\7#\2\2\u00b9+\3\2\2\2\u00ba")
-        buf.write("\u00bb\7\21\2\2\u00bb\u00bc\7#\2\2\u00bc-\3\2\2\2\u00bd")
-        buf.write("\u00be\7\22\2\2\u00be\u00bf\7#\2\2\u00bf/\3\2\2\2\u00c0")
-        buf.write("\u00c1\7\23\2\2\u00c1\u00c2\7#\2\2\u00c2\61\3\2\2\2\u00c3")
-        buf.write("\u00c4\7\24\2\2\u00c4\u00c5\7#\2\2\u00c5\63\3\2\2\2\u00c6")
-        buf.write("\u00c7\7\31\2\2\u00c7\u00c8\7#\2\2\u00c8\65\3\2\2\2\u00c9")
-        buf.write("\u00ca\t\3\2\2\u00ca\u00cb\7#\2\2\u00cb\u00cc\t\4\2\2")
-        buf.write("\u00cc\u00cd\7#\2\2\u00cd\67\3\2\2\2\u00ce\u00d2\7\"\2")
-        buf.write("\2\u00cf\u00d1\t\5\2\2\u00d0\u00cf\3\2\2\2\u00d1\u00d4")
-        buf.write("\3\2\2\2\u00d2\u00d0\3\2\2\2\u00d2\u00d3\3\2\2\2\u00d3")
-        buf.write("9\3\2\2\2\u00d4\u00d2\3\2\2\2\u00d5\u00d6\7#\2\2\u00d6")
-        buf.write("\u00d7\7\13\2\2\u00d7;\3\2\2\2\u00d8\u00d9\7 \2\2\u00d9")
-        buf.write("=\3\2\2\2\u00da\u00dd\5\f\7\2\u00db\u00dd\5\6\4\2\u00dc")
-        buf.write("\u00da\3\2\2\2\u00dc\u00db\3\2\2\2\u00dd\u00e1\3\2\2\2")
-        buf.write("\u00de\u00e0\7\7\2\2\u00df\u00de\3\2\2\2\u00e0\u00e3\3")
-        buf.write("\2\2\2\u00e1\u00df\3\2\2\2\u00e1\u00e2\3\2\2\2\u00e2\u00e5")
-        buf.write("\3\2\2\2\u00e3\u00e1\3\2\2\2\u00e4\u00dc\3\2\2\2\u00e5")
-        buf.write("\u00e8\3\2\2\2\u00e6\u00e4\3\2\2\2\u00e6\u00e7\3\2\2\2")
-        buf.write("\u00e7?\3\2\2\2\u00e8\u00e6\3\2\2\2\17CELQZcty\u0090\u00d2")
-        buf.write("\u00dc\u00e1\u00e6")
+        buf.write("\4\37\t\37\3\2\3\2\3\2\7\2B\n\2\f\2\16\2E\13\2\3\2\3\2")
+        buf.write("\3\3\3\3\5\3K\n\3\3\3\3\3\3\3\5\3P\n\3\3\3\3\3\3\4\3\4")
+        buf.write("\3\4\3\4\3\4\5\4Y\n\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6")
+        buf.write("b\n\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7")
+        buf.write("\3\7\3\7\3\7\3\7\5\7t\n\7\3\b\3\b\3\b\5\by\n\b\3\t\3\t")
+        buf.write("\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13")
+        buf.write("\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\16\3\16")
+        buf.write("\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\20\3\20")
+        buf.write("\3\20\3\21\3\21\3\21\3\22\3\22\3\22\3\23\3\23\3\23\3\24")
+        buf.write("\3\24\3\24\3\25\3\25\3\25\3\26\3\26\3\26\3\27\3\27\3\27")
+        buf.write("\3\30\3\30\3\30\3\31\3\31\3\31\3\32\3\32\3\32\3\33\5\33")
+        buf.write("\u00c1\n\33\3\33\3\33\3\33\3\33\3\34\3\34\3\34\7\34\u00ca")
+        buf.write("\n\34\f\34\16\34\u00cd\13\34\3\34\3\34\3\34\3\34\3\34")
+        buf.write("\3\34\7\34\u00d5\n\34\f\34\16\34\u00d8\13\34\3\35\3\35")
+        buf.write("\3\35\3\36\3\36\3\37\3\37\5\37\u00e1\n\37\3\37\7\37\u00e4")
+        buf.write("\n\37\f\37\16\37\u00e7\13\37\7\37\u00e9\n\37\f\37\16\37")
+        buf.write("\u00ec\13\37\3\37\2\3\66 \2\4\6\b\n\f\16\20\22\24\26\30")
+        buf.write("\32\34\36 \"$&(*,.\60\62\64\668:<\2\7\4\2\7\7@@\3\2\33")
+        buf.write(":\3\2\26\27\4\2\7\7\30\31\3\2BC\2\u00f0\2C\3\2\2\2\4J")
+        buf.write("\3\2\2\2\6S\3\2\2\2\bZ\3\2\2\2\na\3\2\2\2\fs\3\2\2\2\16")
+        buf.write("x\3\2\2\2\20z\3\2\2\2\22\u0080\3\2\2\2\24\u0086\3\2\2")
+        buf.write("\2\26\u008c\3\2\2\2\30\u0091\3\2\2\2\32\u0093\3\2\2\2")
+        buf.write("\34\u0097\3\2\2\2\36\u009c\3\2\2\2 \u00a1\3\2\2\2\"\u00a4")
+        buf.write("\3\2\2\2$\u00a7\3\2\2\2&\u00aa\3\2\2\2(\u00ad\3\2\2\2")
+        buf.write("*\u00b0\3\2\2\2,\u00b3\3\2\2\2.\u00b6\3\2\2\2\60\u00b9")
+        buf.write("\3\2\2\2\62\u00bc\3\2\2\2\64\u00c0\3\2\2\2\66\u00c6\3")
+        buf.write("\2\2\28\u00d9\3\2\2\2:\u00dc\3\2\2\2<\u00ea\3\2\2\2>B")
+        buf.write("\5\4\3\2?B\5\6\4\2@B\7G\2\2A>\3\2\2\2A?\3\2\2\2A@\3\2")
+        buf.write("\2\2BE\3\2\2\2CA\3\2\2\2CD\3\2\2\2DF\3\2\2\2EC\3\2\2\2")
+        buf.write("FG\7\2\2\3G\3\3\2\2\2HK\5\66\34\2IK\5:\36\2JH\3\2\2\2")
+        buf.write("JI\3\2\2\2KL\3\2\2\2LO\7\3\2\2MP\5\f\7\2NP\5\n\6\2OM\3")
+        buf.write("\2\2\2ON\3\2\2\2PQ\3\2\2\2QR\7G\2\2R\5\3\2\2\2ST\5\66")
+        buf.write("\34\2TX\7\4\2\2UY\5\b\5\2VY\5\f\7\2WY\5\n\6\2XU\3\2\2")
+        buf.write("\2XV\3\2\2\2XW\3\2\2\2Y\7\3\2\2\2Z[\5\66\34\2[\\\7\5\2")
+        buf.write("\2\\]\5\66\34\2]\t\3\2\2\2^b\5\34\17\2_b\5\36\20\2`b\5")
+        buf.write(":\36\2a^\3\2\2\2a_\3\2\2\2a`\3\2\2\2b\13\3\2\2\2ct\7C")
+        buf.write("\2\2dt\7>\2\2et\5\16\b\2ft\5\26\f\2gt\5\32\16\2ht\5 \21")
+        buf.write("\2it\5\"\22\2jt\5$\23\2kt\5&\24\2lt\5(\25\2mt\5*\26\2")
+        buf.write("nt\5,\27\2ot\5.\30\2pt\5\60\31\2qt\5\62\32\2rt\5\64\33")
+        buf.write("\2sc\3\2\2\2sd\3\2\2\2se\3\2\2\2sf\3\2\2\2sg\3\2\2\2s")
+        buf.write("h\3\2\2\2si\3\2\2\2sj\3\2\2\2sk\3\2\2\2sl\3\2\2\2sm\3")
+        buf.write("\2\2\2sn\3\2\2\2so\3\2\2\2sp\3\2\2\2sq\3\2\2\2sr\3\2\2")
+        buf.write("\2t\r\3\2\2\2uy\5\20\t\2vy\5\22\n\2wy\5\24\13\2xu\3\2")
+        buf.write("\2\2xv\3\2\2\2xw\3\2\2\2y\17\3\2\2\2z{\7\6\2\2{|\7C\2")
+        buf.write("\2|}\7\7\2\2}~\7C\2\2~\177\7\b\2\2\177\21\3\2\2\2\u0080")
+        buf.write("\u0081\7\6\2\2\u0081\u0082\7C\2\2\u0082\u0083\7@\2\2\u0083")
+        buf.write("\u0084\7C\2\2\u0084\u0085\7\b\2\2\u0085\23\3\2\2\2\u0086")
+        buf.write("\u0087\7\6\2\2\u0087\u0088\7C\2\2\u0088\u0089\t\2\2\2")
+        buf.write("\u0089\u008a\58\35\2\u008a\u008b\7\b\2\2\u008b\25\3\2")
+        buf.write("\2\2\u008c\u008d\5\30\r\2\u008d\u008e\7\t\2\2\u008e\u008f")
+        buf.write("\5<\37\2\u008f\u0090\7\n\2\2\u0090\27\3\2\2\2\u0091\u0092")
+        buf.write("\t\3\2\2\u0092\31\3\2\2\2\u0093\u0094\7;\2\2\u0094\u0095")
+        buf.write("\7A\2\2\u0095\u0096\5\26\f\2\u0096\33\3\2\2\2\u0097\u0098")
+        buf.write("\7<\2\2\u0098\u0099\7\t\2\2\u0099\u009a\5<\37\2\u009a")
+        buf.write("\u009b\7\n\2\2\u009b\35\3\2\2\2\u009c\u009d\7=\2\2\u009d")
+        buf.write("\u009e\7\t\2\2\u009e\u009f\5<\37\2\u009f\u00a0\7\n\2\2")
+        buf.write("\u00a0\37\3\2\2\2\u00a1\u00a2\7\r\2\2\u00a2\u00a3\7C\2")
+        buf.write("\2\u00a3!\3\2\2\2\u00a4\u00a5\7\16\2\2\u00a5\u00a6\7C")
+        buf.write("\2\2\u00a6#\3\2\2\2\u00a7\u00a8\7\17\2\2\u00a8\u00a9\7")
+        buf.write("C\2\2\u00a9%\3\2\2\2\u00aa\u00ab\7\20\2\2\u00ab\u00ac")
+        buf.write("\7C\2\2\u00ac\'\3\2\2\2\u00ad\u00ae\7\21\2\2\u00ae\u00af")
+        buf.write("\7C\2\2\u00af)\3\2\2\2\u00b0\u00b1\7\22\2\2\u00b1\u00b2")
+        buf.write("\7C\2\2\u00b2+\3\2\2\2\u00b3\u00b4\7\23\2\2\u00b4\u00b5")
+        buf.write("\7C\2\2\u00b5-\3\2\2\2\u00b6\u00b7\7\24\2\2\u00b7\u00b8")
+        buf.write("\7C\2\2\u00b8/\3\2\2\2\u00b9\u00ba\7\25\2\2\u00ba\u00bb")
+        buf.write("\7C\2\2\u00bb\61\3\2\2\2\u00bc\u00bd\7\32\2\2\u00bd\u00be")
+        buf.write("\7C\2\2\u00be\63\3\2\2\2\u00bf\u00c1\t\4\2\2\u00c0\u00bf")
+        buf.write("\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2\3\2\2\2\u00c2")
+        buf.write("\u00c3\7C\2\2\u00c3\u00c4\t\5\2\2\u00c4\u00c5\7C\2\2\u00c5")
+        buf.write("\65\3\2\2\2\u00c6\u00c7\b\34\1\2\u00c7\u00cb\7B\2\2\u00c8")
+        buf.write("\u00ca\t\6\2\2\u00c9\u00c8\3\2\2\2\u00ca\u00cd\3\2\2\2")
+        buf.write("\u00cb\u00c9\3\2\2\2\u00cb\u00cc\3\2\2\2\u00cc\u00d6\3")
+        buf.write("\2\2\2\u00cd\u00cb\3\2\2\2\u00ce\u00cf\f\4\2\2\u00cf\u00d0")
+        buf.write("\7A\2\2\u00d0\u00d5\5\66\34\5\u00d1\u00d2\f\3\2\2\u00d2")
+        buf.write("\u00d3\7\13\2\2\u00d3\u00d5\7C\2\2\u00d4\u00ce\3\2\2\2")
+        buf.write("\u00d4\u00d1\3\2\2\2\u00d5\u00d8\3\2\2\2\u00d6\u00d4\3")
+        buf.write("\2\2\2\u00d6\u00d7\3\2\2\2\u00d7\67\3\2\2\2\u00d8\u00d6")
+        buf.write("\3\2\2\2\u00d9\u00da\7C\2\2\u00da\u00db\7\f\2\2\u00db")
+        buf.write("9\3\2\2\2\u00dc\u00dd\7?\2\2\u00dd;\3\2\2\2\u00de\u00e1")
+        buf.write("\5\f\7\2\u00df\u00e1\5\6\4\2\u00e0\u00de\3\2\2\2\u00e0")
+        buf.write("\u00df\3\2\2\2\u00e1\u00e5\3\2\2\2\u00e2\u00e4\7\7\2\2")
+        buf.write("\u00e3\u00e2\3\2\2\2\u00e4\u00e7\3\2\2\2\u00e5\u00e3\3")
+        buf.write("\2\2\2\u00e5\u00e6\3\2\2\2\u00e6\u00e9\3\2\2\2\u00e7\u00e5")
+        buf.write("\3\2\2\2\u00e8\u00e0\3\2\2\2\u00e9\u00ec\3\2\2\2\u00ea")
+        buf.write("\u00e8\3\2\2\2\u00ea\u00eb\3\2\2\2\u00eb=\3\2\2\2\u00ec")
+        buf.write("\u00ea\3\2\2\2\21ACJOXasx\u00c0\u00cb\u00d4\u00d6\u00e0")
+        buf.write("\u00e5\u00ea")
         return buf.getvalue()
 
 
@@ -109,17 +114,37 @@ class puffinParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'->'", "'='", "'+'", "'['", "','", "']'",
-                     "'('", "')'", "'%'" ]
+    literalNames = [ "<INVALID>", "'->'", "'='", "'+'", "'['", "','", "']'", 
+                     "'('", "')'", "'!'", "'%'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'.'" ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
-                      "<INVALID>", "<INVALID>", "ABOUT", "AROUND", "COUNT",
-                      "ALMOST", "OVER", "BELOW", "ABOVE", "AT_MOST", "AT_LEAST",
-                      "BETWEEN", "FROM", "AND", "TO", "ORDER", "NORMAL",
-                      "UNIFORM", "BETA", "LIST", "TOUPLE", "STRING", "ESTRING",
-                      "PLUS_MINUS", "IDL", "NUMBER", "EXPONENT_NUMBER",
-                      "INT", "FLOAT", "NEWLINE", "WS" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "ABOUT", "AROUND", 
+                      "COUNT", "ALMOST", "OVER", "BELOW", "ABOVE", "AT_MOST", 
+                      "AT_LEAST", "BETWEEN", "FROM", "AND", "TO", "ORDER", 
+                      "BERNOULLI", "BETA", "BINOMIAL", "CAUCHY", "CHISQU", 
+                      "DELTA", "DISCUNIFORM", "EXPENENTIAL", "FDIST", "FRECHET", 
+                      "GAMMA", "GEOMETRIC", "GUASSIAN", "GUMBEL", "LAPLACE", 
+                      "LOGISTIC", "LOGNORMAL", "LOGTRIANGULAR", "NORMAL", 
+                      "PARETO", "PASCAL", "POISSON", "POWFUN", "RAYLEIGH", 
+                      "RECIPROCAL", "SIMPSON", "STUDENT_T", "TRAPZOIDAL", 
+                      "TRANGULAR", "UNIFORM", "WAKEBY", "WEIBUL", "CBOX", 
+                      "LIST", "TOUPLE", "STRING", "ESTRING", "PLUS_MINUS", 
+                      "DOT", "IDL", "NUMBER", "EXPONENT_NUMBER", "INT", 
+                      "FLOAT", "NEWLINE", "WS" ]
 
     RULE_file_input = 0
     RULE_assignment = 1
@@ -132,34 +157,32 @@ class puffinParser ( Parser ):
     RULE_interval_plusminus = 8
     RULE_interval_pct = 9
     RULE_pdistribution = 10
-    RULE_normal = 11
-    RULE_uniform = 12
-    RULE_beta = 13
-    RULE_list_stmt = 14
-    RULE_touple_stmt = 15
-    RULE_about = 16
-    RULE_around = 17
-    RULE_count = 18
-    RULE_almost = 19
-    RULE_over = 20
-    RULE_below = 21
-    RULE_above = 22
-    RULE_at_most = 23
-    RULE_at_least = 24
-    RULE_order = 25
-    RULE_between = 26
-    RULE_id_name = 27
-    RULE_pct = 28
-    RULE_element = 29
-    RULE_arglist = 30
+    RULE_distname = 11
+    RULE_cbox = 12
+    RULE_list_stmt = 13
+    RULE_touple_stmt = 14
+    RULE_about = 15
+    RULE_around = 16
+    RULE_count = 17
+    RULE_almost = 18
+    RULE_over = 19
+    RULE_below = 20
+    RULE_above = 21
+    RULE_at_most = 22
+    RULE_at_least = 23
+    RULE_order = 24
+    RULE_between = 25
+    RULE_id_name = 26
+    RULE_pct = 27
+    RULE_element = 28
+    RULE_arglist = 29
 
-    ruleNames =  [ "file_input", "assignment", "equals", "arith", "collection",
-                   "atom", "interval", "interval_basic", "interval_plusminus",
-                   "interval_pct", "pdistribution", "normal", "uniform",
-                   "beta", "list_stmt", "touple_stmt", "about", "around",
-                   "count", "almost", "over", "below", "above", "at_most",
-                   "at_least", "order", "between", "id_name", "pct", "element",
-                   "arglist" ]
+    ruleNames =  [ "file_input", "assignment", "equals", "arith", "collection", 
+                   "atom", "interval", "interval_basic", "interval_plusminus", 
+                   "interval_pct", "pdistribution", "distname", "cbox", 
+                   "list_stmt", "touple_stmt", "about", "around", "count", 
+                   "almost", "over", "below", "above", "at_most", "at_least", 
+                   "order", "between", "id_name", "pct", "element", "arglist" ]
 
     EOF = Token.EOF
     T__0=1
@@ -171,41 +194,74 @@ class puffinParser ( Parser ):
     T__6=7
     T__7=8
     T__8=9
-    ABOUT=10
-    AROUND=11
-    COUNT=12
-    ALMOST=13
-    OVER=14
-    BELOW=15
-    ABOVE=16
-    AT_MOST=17
-    AT_LEAST=18
-    BETWEEN=19
-    FROM=20
-    AND=21
-    TO=22
-    ORDER=23
-    NORMAL=24
-    UNIFORM=25
+    T__9=10
+    ABOUT=11
+    AROUND=12
+    COUNT=13
+    ALMOST=14
+    OVER=15
+    BELOW=16
+    ABOVE=17
+    AT_MOST=18
+    AT_LEAST=19
+    BETWEEN=20
+    FROM=21
+    AND=22
+    TO=23
+    ORDER=24
+    BERNOULLI=25
     BETA=26
-    LIST=27
-    TOUPLE=28
-    STRING=29
-    ESTRING=30
-    PLUS_MINUS=31
-    IDL=32
-    NUMBER=33
-    EXPONENT_NUMBER=34
-    INT=35
-    FLOAT=36
-    NEWLINE=37
-    WS=38
+    BINOMIAL=27
+    CAUCHY=28
+    CHISQU=29
+    DELTA=30
+    DISCUNIFORM=31
+    EXPENENTIAL=32
+    FDIST=33
+    FRECHET=34
+    GAMMA=35
+    GEOMETRIC=36
+    GUASSIAN=37
+    GUMBEL=38
+    LAPLACE=39
+    LOGISTIC=40
+    LOGNORMAL=41
+    LOGTRIANGULAR=42
+    NORMAL=43
+    PARETO=44
+    PASCAL=45
+    POISSON=46
+    POWFUN=47
+    RAYLEIGH=48
+    RECIPROCAL=49
+    SIMPSON=50
+    STUDENT_T=51
+    TRAPZOIDAL=52
+    TRANGULAR=53
+    UNIFORM=54
+    WAKEBY=55
+    WEIBUL=56
+    CBOX=57
+    LIST=58
+    TOUPLE=59
+    STRING=60
+    ESTRING=61
+    PLUS_MINUS=62
+    DOT=63
+    IDL=64
+    NUMBER=65
+    EXPONENT_NUMBER=66
+    INT=67
+    FLOAT=68
+    NEWLINE=69
+    WS=70
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.7.1")
+        self.checkVersion("4.7.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
+
 
 
 
@@ -259,34 +315,34 @@ class puffinParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 67
+            self.state = 65
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << puffinParser.ESTRING) | (1 << puffinParser.IDL) | (1 << puffinParser.NEWLINE))) != 0):
-                self.state = 65
+            while ((((_la - 61)) & ~0x3f) == 0 and ((1 << (_la - 61)) & ((1 << (puffinParser.ESTRING - 61)) | (1 << (puffinParser.IDL - 61)) | (1 << (puffinParser.NEWLINE - 61)))) != 0):
+                self.state = 63
                 self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
                 if la_ == 1:
-                    self.state = 62
+                    self.state = 60
                     self.assignment()
                     pass
 
                 elif la_ == 2:
-                    self.state = 63
+                    self.state = 61
                     self.equals()
                     pass
 
                 elif la_ == 3:
-                    self.state = 64
+                    self.state = 62
                     self.match(puffinParser.NEWLINE)
                     pass
 
 
-                self.state = 69
+                self.state = 67
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 70
+            self.state = 68
             self.match(puffinParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -295,6 +351,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class AssignmentContext(ParserRuleContext):
 
@@ -341,37 +398,37 @@ class puffinParser ( Parser ):
         self.enterRule(localctx, 2, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 74
+            self.state = 72
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [puffinParser.IDL]:
-                self.state = 72
-                self.id_name()
+                self.state = 70
+                self.id_name(0)
                 pass
             elif token in [puffinParser.ESTRING]:
-                self.state = 73
+                self.state = 71
                 self.element()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 76
+            self.state = 74
             self.match(puffinParser.T__0)
-            self.state = 79
+            self.state = 77
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [puffinParser.T__3, puffinParser.ABOUT, puffinParser.AROUND, puffinParser.COUNT, puffinParser.ALMOST, puffinParser.OVER, puffinParser.BELOW, puffinParser.ABOVE, puffinParser.AT_MOST, puffinParser.AT_LEAST, puffinParser.BETWEEN, puffinParser.FROM, puffinParser.ORDER, puffinParser.NORMAL, puffinParser.UNIFORM, puffinParser.BETA, puffinParser.STRING, puffinParser.NUMBER]:
-                self.state = 77
+            if token in [puffinParser.T__3, puffinParser.ABOUT, puffinParser.AROUND, puffinParser.COUNT, puffinParser.ALMOST, puffinParser.OVER, puffinParser.BELOW, puffinParser.ABOVE, puffinParser.AT_MOST, puffinParser.AT_LEAST, puffinParser.BETWEEN, puffinParser.FROM, puffinParser.ORDER, puffinParser.BERNOULLI, puffinParser.BETA, puffinParser.BINOMIAL, puffinParser.CAUCHY, puffinParser.CHISQU, puffinParser.DELTA, puffinParser.DISCUNIFORM, puffinParser.EXPENENTIAL, puffinParser.FDIST, puffinParser.FRECHET, puffinParser.GAMMA, puffinParser.GEOMETRIC, puffinParser.GUASSIAN, puffinParser.GUMBEL, puffinParser.LAPLACE, puffinParser.LOGISTIC, puffinParser.LOGNORMAL, puffinParser.LOGTRIANGULAR, puffinParser.NORMAL, puffinParser.PARETO, puffinParser.PASCAL, puffinParser.POISSON, puffinParser.POWFUN, puffinParser.RAYLEIGH, puffinParser.RECIPROCAL, puffinParser.SIMPSON, puffinParser.STUDENT_T, puffinParser.TRAPZOIDAL, puffinParser.TRANGULAR, puffinParser.UNIFORM, puffinParser.WAKEBY, puffinParser.WEIBUL, puffinParser.CBOX, puffinParser.STRING, puffinParser.NUMBER]:
+                self.state = 75
                 self.atom()
                 pass
             elif token in [puffinParser.LIST, puffinParser.TOUPLE, puffinParser.ESTRING]:
-                self.state = 78
+                self.state = 76
                 self.collection()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 81
+            self.state = 79
             self.match(puffinParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
@@ -380,6 +437,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class EqualsContext(ParserRuleContext):
 
@@ -423,23 +481,23 @@ class puffinParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_equals)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 83
-            self.id_name()
-            self.state = 84
+            self.state = 81
+            self.id_name(0)
+            self.state = 82
             self.match(puffinParser.T__1)
-            self.state = 88
+            self.state = 86
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [puffinParser.IDL]:
-                self.state = 85
+                self.state = 83
                 self.arith()
                 pass
-            elif token in [puffinParser.T__3, puffinParser.ABOUT, puffinParser.AROUND, puffinParser.COUNT, puffinParser.ALMOST, puffinParser.OVER, puffinParser.BELOW, puffinParser.ABOVE, puffinParser.AT_MOST, puffinParser.AT_LEAST, puffinParser.BETWEEN, puffinParser.FROM, puffinParser.ORDER, puffinParser.NORMAL, puffinParser.UNIFORM, puffinParser.BETA, puffinParser.STRING, puffinParser.NUMBER]:
-                self.state = 86
+            elif token in [puffinParser.T__3, puffinParser.ABOUT, puffinParser.AROUND, puffinParser.COUNT, puffinParser.ALMOST, puffinParser.OVER, puffinParser.BELOW, puffinParser.ABOVE, puffinParser.AT_MOST, puffinParser.AT_LEAST, puffinParser.BETWEEN, puffinParser.FROM, puffinParser.ORDER, puffinParser.BERNOULLI, puffinParser.BETA, puffinParser.BINOMIAL, puffinParser.CAUCHY, puffinParser.CHISQU, puffinParser.DELTA, puffinParser.DISCUNIFORM, puffinParser.EXPENENTIAL, puffinParser.FDIST, puffinParser.FRECHET, puffinParser.GAMMA, puffinParser.GEOMETRIC, puffinParser.GUASSIAN, puffinParser.GUMBEL, puffinParser.LAPLACE, puffinParser.LOGISTIC, puffinParser.LOGNORMAL, puffinParser.LOGTRIANGULAR, puffinParser.NORMAL, puffinParser.PARETO, puffinParser.PASCAL, puffinParser.POISSON, puffinParser.POWFUN, puffinParser.RAYLEIGH, puffinParser.RECIPROCAL, puffinParser.SIMPSON, puffinParser.STUDENT_T, puffinParser.TRAPZOIDAL, puffinParser.TRANGULAR, puffinParser.UNIFORM, puffinParser.WAKEBY, puffinParser.WEIBUL, puffinParser.CBOX, puffinParser.STRING, puffinParser.NUMBER]:
+                self.state = 84
                 self.atom()
                 pass
             elif token in [puffinParser.LIST, puffinParser.TOUPLE, puffinParser.ESTRING]:
-                self.state = 87
+                self.state = 85
                 self.collection()
                 pass
             else:
@@ -452,6 +510,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class ArithContext(ParserRuleContext):
 
@@ -486,12 +545,12 @@ class puffinParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_arith)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 90
-            self.id_name()
-            self.state = 91
+            self.state = 88
+            self.id_name(0)
+            self.state = 89
             self.match(puffinParser.T__2)
-            self.state = 92
-            self.id_name()
+            self.state = 90
+            self.id_name(0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -499,6 +558,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class CollectionContext(ParserRuleContext):
 
@@ -537,22 +597,22 @@ class puffinParser ( Parser ):
         localctx = puffinParser.CollectionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_collection)
         try:
-            self.state = 97
+            self.state = 95
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [puffinParser.LIST]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 94
+                self.state = 92
                 self.list_stmt()
                 pass
             elif token in [puffinParser.TOUPLE]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 95
+                self.state = 93
                 self.touple_stmt()
                 pass
             elif token in [puffinParser.ESTRING]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 96
+                self.state = 94
                 self.element()
                 pass
             else:
@@ -565,6 +625,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class AtomContext(ParserRuleContext):
 
@@ -584,6 +645,10 @@ class puffinParser ( Parser ):
 
         def pdistribution(self):
             return self.getTypedRuleContext(puffinParser.PdistributionContext,0)
+
+
+        def cbox(self):
+            return self.getTypedRuleContext(puffinParser.CboxContext,0)
 
 
         def about(self):
@@ -649,86 +714,105 @@ class puffinParser ( Parser ):
         localctx = puffinParser.AtomContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_atom)
         try:
-            self.state = 114
+            self.state = 113
             self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [puffinParser.NUMBER]:
+            la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
+            if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 99
+                self.state = 97
                 self.match(puffinParser.NUMBER)
                 pass
-            elif token in [puffinParser.STRING]:
+
+            elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 100
+                self.state = 98
                 self.match(puffinParser.STRING)
                 pass
-            elif token in [puffinParser.T__3]:
+
+            elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 101
+                self.state = 99
                 self.interval()
                 pass
-            elif token in [puffinParser.NORMAL, puffinParser.UNIFORM, puffinParser.BETA]:
+
+            elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 102
+                self.state = 100
                 self.pdistribution()
                 pass
-            elif token in [puffinParser.ABOUT]:
+
+            elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 103
+                self.state = 101
+                self.cbox()
+                pass
+
+            elif la_ == 6:
+                self.enterOuterAlt(localctx, 6)
+                self.state = 102
                 self.about()
                 pass
-            elif token in [puffinParser.AROUND]:
-                self.enterOuterAlt(localctx, 6)
-                self.state = 104
+
+            elif la_ == 7:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 103
                 self.around()
                 pass
-            elif token in [puffinParser.COUNT]:
-                self.enterOuterAlt(localctx, 7)
-                self.state = 105
+
+            elif la_ == 8:
+                self.enterOuterAlt(localctx, 8)
+                self.state = 104
                 self.count()
                 pass
-            elif token in [puffinParser.ALMOST]:
-                self.enterOuterAlt(localctx, 8)
-                self.state = 106
+
+            elif la_ == 9:
+                self.enterOuterAlt(localctx, 9)
+                self.state = 105
                 self.almost()
                 pass
-            elif token in [puffinParser.OVER]:
-                self.enterOuterAlt(localctx, 9)
-                self.state = 107
+
+            elif la_ == 10:
+                self.enterOuterAlt(localctx, 10)
+                self.state = 106
                 self.over()
                 pass
-            elif token in [puffinParser.BELOW]:
-                self.enterOuterAlt(localctx, 10)
-                self.state = 108
+
+            elif la_ == 11:
+                self.enterOuterAlt(localctx, 11)
+                self.state = 107
                 self.below()
                 pass
-            elif token in [puffinParser.ABOVE]:
-                self.enterOuterAlt(localctx, 11)
-                self.state = 109
+
+            elif la_ == 12:
+                self.enterOuterAlt(localctx, 12)
+                self.state = 108
                 self.above()
                 pass
-            elif token in [puffinParser.AT_MOST]:
-                self.enterOuterAlt(localctx, 12)
-                self.state = 110
+
+            elif la_ == 13:
+                self.enterOuterAlt(localctx, 13)
+                self.state = 109
                 self.at_most()
                 pass
-            elif token in [puffinParser.AT_LEAST]:
-                self.enterOuterAlt(localctx, 13)
-                self.state = 111
+
+            elif la_ == 14:
+                self.enterOuterAlt(localctx, 14)
+                self.state = 110
                 self.at_least()
                 pass
-            elif token in [puffinParser.ORDER]:
-                self.enterOuterAlt(localctx, 14)
-                self.state = 112
+
+            elif la_ == 15:
+                self.enterOuterAlt(localctx, 15)
+                self.state = 111
                 self.order()
                 pass
-            elif token in [puffinParser.BETWEEN, puffinParser.FROM]:
-                self.enterOuterAlt(localctx, 15)
-                self.state = 113
+
+            elif la_ == 16:
+                self.enterOuterAlt(localctx, 16)
+                self.state = 112
                 self.between()
                 pass
-            else:
-                raise NoViableAltException(self)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -737,6 +821,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class IntervalContext(ParserRuleContext):
 
@@ -775,24 +860,24 @@ class puffinParser ( Parser ):
         localctx = puffinParser.IntervalContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_interval)
         try:
-            self.state = 119
+            self.state = 118
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 116
+                self.state = 115
                 self.interval_basic()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 117
+                self.state = 116
                 self.interval_plusminus()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 118
+                self.state = 117
                 self.interval_pct()
                 pass
 
@@ -804,6 +889,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class Interval_basicContext(ParserRuleContext):
 
@@ -837,15 +923,15 @@ class puffinParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_interval_basic)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 121
+            self.state = 120
             self.match(puffinParser.T__3)
+            self.state = 121
+            self.match(puffinParser.NUMBER)
             self.state = 122
-            self.match(puffinParser.NUMBER)
-            self.state = 123
             self.match(puffinParser.T__4)
-            self.state = 124
+            self.state = 123
             self.match(puffinParser.NUMBER)
-            self.state = 125
+            self.state = 124
             self.match(puffinParser.T__5)
         except RecognitionException as re:
             localctx.exception = re
@@ -854,6 +940,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class Interval_plusminusContext(ParserRuleContext):
 
@@ -890,15 +977,15 @@ class puffinParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_interval_plusminus)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 127
+            self.state = 126
             self.match(puffinParser.T__3)
+            self.state = 127
+            self.match(puffinParser.NUMBER)
             self.state = 128
-            self.match(puffinParser.NUMBER)
-            self.state = 129
             self.match(puffinParser.PLUS_MINUS)
-            self.state = 130
+            self.state = 129
             self.match(puffinParser.NUMBER)
-            self.state = 131
+            self.state = 130
             self.match(puffinParser.T__5)
         except RecognitionException as re:
             localctx.exception = re
@@ -907,6 +994,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class Interval_pctContext(ParserRuleContext):
 
@@ -945,20 +1033,20 @@ class puffinParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 133
+            self.state = 132
             self.match(puffinParser.T__3)
-            self.state = 134
+            self.state = 133
             self.match(puffinParser.NUMBER)
-            self.state = 135
+            self.state = 134
             _la = self._input.LA(1)
             if not(_la==puffinParser.T__4 or _la==puffinParser.PLUS_MINUS):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 136
+            self.state = 135
             self.pct()
-            self.state = 137
+            self.state = 136
             self.match(puffinParser.T__5)
         except RecognitionException as re:
             localctx.exception = re
@@ -968,22 +1056,19 @@ class puffinParser ( Parser ):
             self.exitRule()
         return localctx
 
+
     class PdistributionContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def normal(self):
-            return self.getTypedRuleContext(puffinParser.NormalContext,0)
+        def distname(self):
+            return self.getTypedRuleContext(puffinParser.DistnameContext,0)
 
 
-        def uniform(self):
-            return self.getTypedRuleContext(puffinParser.UniformContext,0)
-
-
-        def beta(self):
-            return self.getTypedRuleContext(puffinParser.BetaContext,0)
+        def arglist(self):
+            return self.getTypedRuleContext(puffinParser.ArglistContext,0)
 
 
         def getRuleIndex(self):
@@ -1005,75 +1090,14 @@ class puffinParser ( Parser ):
         localctx = puffinParser.PdistributionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_pdistribution)
         try:
-            self.state = 142
-            self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [puffinParser.NORMAL]:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 139
-                self.normal()
-                pass
-            elif token in [puffinParser.UNIFORM]:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 140
-                self.uniform()
-                pass
-            elif token in [puffinParser.BETA]:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 141
-                self.beta()
-                pass
-            else:
-                raise NoViableAltException(self)
-
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class NormalContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def NORMAL(self):
-            return self.getToken(puffinParser.NORMAL, 0)
-
-        def arglist(self):
-            return self.getTypedRuleContext(puffinParser.ArglistContext,0)
-
-
-        def getRuleIndex(self):
-            return puffinParser.RULE_normal
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterNormal" ):
-                listener.enterNormal(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitNormal" ):
-                listener.exitNormal(self)
-
-
-
-
-    def normal(self):
-
-        localctx = puffinParser.NormalContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_normal)
-        try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 144
-            self.match(puffinParser.NORMAL)
-            self.state = 145
+            self.state = 138
+            self.distname()
+            self.state = 139
             self.match(puffinParser.T__6)
-            self.state = 146
+            self.state = 140
             self.arglist()
-            self.state = 147
+            self.state = 141
             self.match(puffinParser.T__7)
         except RecognitionException as re:
             localctx.exception = re
@@ -1083,96 +1107,137 @@ class puffinParser ( Parser ):
             self.exitRule()
         return localctx
 
-    class UniformContext(ParserRuleContext):
+
+    class DistnameContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def UNIFORM(self):
-            return self.getToken(puffinParser.UNIFORM, 0)
-
-        def arglist(self):
-            return self.getTypedRuleContext(puffinParser.ArglistContext,0)
-
-
-        def getRuleIndex(self):
-            return puffinParser.RULE_uniform
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterUniform" ):
-                listener.enterUniform(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitUniform" ):
-                listener.exitUniform(self)
-
-
-
-
-    def uniform(self):
-
-        localctx = puffinParser.UniformContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_uniform)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 149
-            self.match(puffinParser.UNIFORM)
-            self.state = 150
-            self.match(puffinParser.T__6)
-            self.state = 151
-            self.arglist()
-            self.state = 152
-            self.match(puffinParser.T__7)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class BetaContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
+        def BERNOULLI(self):
+            return self.getToken(puffinParser.BERNOULLI, 0)
 
         def BETA(self):
             return self.getToken(puffinParser.BETA, 0)
 
-        def arglist(self):
-            return self.getTypedRuleContext(puffinParser.ArglistContext,0)
+        def BINOMIAL(self):
+            return self.getToken(puffinParser.BINOMIAL, 0)
 
+        def CAUCHY(self):
+            return self.getToken(puffinParser.CAUCHY, 0)
+
+        def CHISQU(self):
+            return self.getToken(puffinParser.CHISQU, 0)
+
+        def DELTA(self):
+            return self.getToken(puffinParser.DELTA, 0)
+
+        def DISCUNIFORM(self):
+            return self.getToken(puffinParser.DISCUNIFORM, 0)
+
+        def EXPENENTIAL(self):
+            return self.getToken(puffinParser.EXPENENTIAL, 0)
+
+        def FDIST(self):
+            return self.getToken(puffinParser.FDIST, 0)
+
+        def FRECHET(self):
+            return self.getToken(puffinParser.FRECHET, 0)
+
+        def GAMMA(self):
+            return self.getToken(puffinParser.GAMMA, 0)
+
+        def GEOMETRIC(self):
+            return self.getToken(puffinParser.GEOMETRIC, 0)
+
+        def GUASSIAN(self):
+            return self.getToken(puffinParser.GUASSIAN, 0)
+
+        def GUMBEL(self):
+            return self.getToken(puffinParser.GUMBEL, 0)
+
+        def LAPLACE(self):
+            return self.getToken(puffinParser.LAPLACE, 0)
+
+        def LOGISTIC(self):
+            return self.getToken(puffinParser.LOGISTIC, 0)
+
+        def LOGNORMAL(self):
+            return self.getToken(puffinParser.LOGNORMAL, 0)
+
+        def LOGTRIANGULAR(self):
+            return self.getToken(puffinParser.LOGTRIANGULAR, 0)
+
+        def NORMAL(self):
+            return self.getToken(puffinParser.NORMAL, 0)
+
+        def PARETO(self):
+            return self.getToken(puffinParser.PARETO, 0)
+
+        def PASCAL(self):
+            return self.getToken(puffinParser.PASCAL, 0)
+
+        def POISSON(self):
+            return self.getToken(puffinParser.POISSON, 0)
+
+        def POWFUN(self):
+            return self.getToken(puffinParser.POWFUN, 0)
+
+        def RAYLEIGH(self):
+            return self.getToken(puffinParser.RAYLEIGH, 0)
+
+        def RECIPROCAL(self):
+            return self.getToken(puffinParser.RECIPROCAL, 0)
+
+        def SIMPSON(self):
+            return self.getToken(puffinParser.SIMPSON, 0)
+
+        def STUDENT_T(self):
+            return self.getToken(puffinParser.STUDENT_T, 0)
+
+        def TRAPZOIDAL(self):
+            return self.getToken(puffinParser.TRAPZOIDAL, 0)
+
+        def TRANGULAR(self):
+            return self.getToken(puffinParser.TRANGULAR, 0)
+
+        def UNIFORM(self):
+            return self.getToken(puffinParser.UNIFORM, 0)
+
+        def WAKEBY(self):
+            return self.getToken(puffinParser.WAKEBY, 0)
+
+        def WEIBUL(self):
+            return self.getToken(puffinParser.WEIBUL, 0)
 
         def getRuleIndex(self):
-            return puffinParser.RULE_beta
+            return puffinParser.RULE_distname
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBeta" ):
-                listener.enterBeta(self)
+            if hasattr( listener, "enterDistname" ):
+                listener.enterDistname(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBeta" ):
-                listener.exitBeta(self)
+            if hasattr( listener, "exitDistname" ):
+                listener.exitDistname(self)
 
 
 
 
-    def beta(self):
+    def distname(self):
 
-        localctx = puffinParser.BetaContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_beta)
+        localctx = puffinParser.DistnameContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 22, self.RULE_distname)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 154
-            self.match(puffinParser.BETA)
-            self.state = 155
-            self.match(puffinParser.T__6)
-            self.state = 156
-            self.arglist()
-            self.state = 157
-            self.match(puffinParser.T__7)
+            self.state = 143
+            _la = self._input.LA(1)
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << puffinParser.BERNOULLI) | (1 << puffinParser.BETA) | (1 << puffinParser.BINOMIAL) | (1 << puffinParser.CAUCHY) | (1 << puffinParser.CHISQU) | (1 << puffinParser.DELTA) | (1 << puffinParser.DISCUNIFORM) | (1 << puffinParser.EXPENENTIAL) | (1 << puffinParser.FDIST) | (1 << puffinParser.FRECHET) | (1 << puffinParser.GAMMA) | (1 << puffinParser.GEOMETRIC) | (1 << puffinParser.GUASSIAN) | (1 << puffinParser.GUMBEL) | (1 << puffinParser.LAPLACE) | (1 << puffinParser.LOGISTIC) | (1 << puffinParser.LOGNORMAL) | (1 << puffinParser.LOGTRIANGULAR) | (1 << puffinParser.NORMAL) | (1 << puffinParser.PARETO) | (1 << puffinParser.PASCAL) | (1 << puffinParser.POISSON) | (1 << puffinParser.POWFUN) | (1 << puffinParser.RAYLEIGH) | (1 << puffinParser.RECIPROCAL) | (1 << puffinParser.SIMPSON) | (1 << puffinParser.STUDENT_T) | (1 << puffinParser.TRAPZOIDAL) | (1 << puffinParser.TRANGULAR) | (1 << puffinParser.UNIFORM) | (1 << puffinParser.WAKEBY) | (1 << puffinParser.WEIBUL))) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1180,6 +1245,58 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
+
+    class CboxContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def CBOX(self):
+            return self.getToken(puffinParser.CBOX, 0)
+
+        def DOT(self):
+            return self.getToken(puffinParser.DOT, 0)
+
+        def pdistribution(self):
+            return self.getTypedRuleContext(puffinParser.PdistributionContext,0)
+
+
+        def getRuleIndex(self):
+            return puffinParser.RULE_cbox
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCbox" ):
+                listener.enterCbox(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCbox" ):
+                listener.exitCbox(self)
+
+
+
+
+    def cbox(self):
+
+        localctx = puffinParser.CboxContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 24, self.RULE_cbox)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 145
+            self.match(puffinParser.CBOX)
+            self.state = 146
+            self.match(puffinParser.DOT)
+            self.state = 147
+            self.pdistribution()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
 
     class List_stmtContext(ParserRuleContext):
 
@@ -1211,16 +1328,16 @@ class puffinParser ( Parser ):
     def list_stmt(self):
 
         localctx = puffinParser.List_stmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_list_stmt)
+        self.enterRule(localctx, 26, self.RULE_list_stmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 159
+            self.state = 149
             self.match(puffinParser.LIST)
-            self.state = 160
+            self.state = 150
             self.match(puffinParser.T__6)
-            self.state = 161
+            self.state = 151
             self.arglist()
-            self.state = 162
+            self.state = 152
             self.match(puffinParser.T__7)
         except RecognitionException as re:
             localctx.exception = re
@@ -1229,6 +1346,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class Touple_stmtContext(ParserRuleContext):
 
@@ -1260,16 +1378,16 @@ class puffinParser ( Parser ):
     def touple_stmt(self):
 
         localctx = puffinParser.Touple_stmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_touple_stmt)
+        self.enterRule(localctx, 28, self.RULE_touple_stmt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 164
+            self.state = 154
             self.match(puffinParser.TOUPLE)
-            self.state = 165
+            self.state = 155
             self.match(puffinParser.T__6)
-            self.state = 166
+            self.state = 156
             self.arglist()
-            self.state = 167
+            self.state = 157
             self.match(puffinParser.T__7)
         except RecognitionException as re:
             localctx.exception = re
@@ -1278,6 +1396,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class AboutContext(ParserRuleContext):
 
@@ -1308,12 +1427,12 @@ class puffinParser ( Parser ):
     def about(self):
 
         localctx = puffinParser.AboutContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_about)
+        self.enterRule(localctx, 30, self.RULE_about)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 169
+            self.state = 159
             self.match(puffinParser.ABOUT)
-            self.state = 170
+            self.state = 160
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1322,6 +1441,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class AroundContext(ParserRuleContext):
 
@@ -1352,12 +1472,12 @@ class puffinParser ( Parser ):
     def around(self):
 
         localctx = puffinParser.AroundContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_around)
+        self.enterRule(localctx, 32, self.RULE_around)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 172
+            self.state = 162
             self.match(puffinParser.AROUND)
-            self.state = 173
+            self.state = 163
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1366,6 +1486,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class CountContext(ParserRuleContext):
 
@@ -1396,12 +1517,12 @@ class puffinParser ( Parser ):
     def count(self):
 
         localctx = puffinParser.CountContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_count)
+        self.enterRule(localctx, 34, self.RULE_count)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 175
+            self.state = 165
             self.match(puffinParser.COUNT)
-            self.state = 176
+            self.state = 166
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1410,6 +1531,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class AlmostContext(ParserRuleContext):
 
@@ -1440,12 +1562,12 @@ class puffinParser ( Parser ):
     def almost(self):
 
         localctx = puffinParser.AlmostContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_almost)
+        self.enterRule(localctx, 36, self.RULE_almost)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 178
+            self.state = 168
             self.match(puffinParser.ALMOST)
-            self.state = 179
+            self.state = 169
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1454,6 +1576,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class OverContext(ParserRuleContext):
 
@@ -1484,12 +1607,12 @@ class puffinParser ( Parser ):
     def over(self):
 
         localctx = puffinParser.OverContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_over)
+        self.enterRule(localctx, 38, self.RULE_over)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 181
+            self.state = 171
             self.match(puffinParser.OVER)
-            self.state = 182
+            self.state = 172
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1498,6 +1621,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class BelowContext(ParserRuleContext):
 
@@ -1528,12 +1652,12 @@ class puffinParser ( Parser ):
     def below(self):
 
         localctx = puffinParser.BelowContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_below)
+        self.enterRule(localctx, 40, self.RULE_below)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 184
+            self.state = 174
             self.match(puffinParser.BELOW)
-            self.state = 185
+            self.state = 175
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1542,6 +1666,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class AboveContext(ParserRuleContext):
 
@@ -1572,12 +1697,12 @@ class puffinParser ( Parser ):
     def above(self):
 
         localctx = puffinParser.AboveContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_above)
+        self.enterRule(localctx, 42, self.RULE_above)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 187
+            self.state = 177
             self.match(puffinParser.ABOVE)
-            self.state = 188
+            self.state = 178
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1586,6 +1711,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class At_mostContext(ParserRuleContext):
 
@@ -1616,12 +1742,12 @@ class puffinParser ( Parser ):
     def at_most(self):
 
         localctx = puffinParser.At_mostContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_at_most)
+        self.enterRule(localctx, 44, self.RULE_at_most)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 190
+            self.state = 180
             self.match(puffinParser.AT_MOST)
-            self.state = 191
+            self.state = 181
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1630,6 +1756,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class At_leastContext(ParserRuleContext):
 
@@ -1660,12 +1787,12 @@ class puffinParser ( Parser ):
     def at_least(self):
 
         localctx = puffinParser.At_leastContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_at_least)
+        self.enterRule(localctx, 46, self.RULE_at_least)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 193
+            self.state = 183
             self.match(puffinParser.AT_LEAST)
-            self.state = 194
+            self.state = 184
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1674,6 +1801,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class OrderContext(ParserRuleContext):
 
@@ -1704,12 +1832,12 @@ class puffinParser ( Parser ):
     def order(self):
 
         localctx = puffinParser.OrderContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_order)
+        self.enterRule(localctx, 48, self.RULE_order)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 196
+            self.state = 186
             self.match(puffinParser.ORDER)
-            self.state = 197
+            self.state = 187
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1718,6 +1846,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class BetweenContext(ParserRuleContext):
 
@@ -1731,17 +1860,17 @@ class puffinParser ( Parser ):
             else:
                 return self.getToken(puffinParser.NUMBER, i)
 
-        def BETWEEN(self):
-            return self.getToken(puffinParser.BETWEEN, 0)
-
-        def FROM(self):
-            return self.getToken(puffinParser.FROM, 0)
-
         def AND(self):
             return self.getToken(puffinParser.AND, 0)
 
         def TO(self):
             return self.getToken(puffinParser.TO, 0)
+
+        def BETWEEN(self):
+            return self.getToken(puffinParser.BETWEEN, 0)
+
+        def FROM(self):
+            return self.getToken(puffinParser.FROM, 0)
 
         def getRuleIndex(self):
             return puffinParser.RULE_between
@@ -1760,27 +1889,33 @@ class puffinParser ( Parser ):
     def between(self):
 
         localctx = puffinParser.BetweenContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 52, self.RULE_between)
+        self.enterRule(localctx, 50, self.RULE_between)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 199
+            self.state = 190
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if not(_la==puffinParser.BETWEEN or _la==puffinParser.FROM):
-                self._errHandler.recoverInline(self)
-            else:
-                self._errHandler.reportMatch(self)
-                self.consume()
-            self.state = 200
+            if _la==puffinParser.BETWEEN or _la==puffinParser.FROM:
+                self.state = 189
+                _la = self._input.LA(1)
+                if not(_la==puffinParser.BETWEEN or _la==puffinParser.FROM):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+
+
+            self.state = 192
             self.match(puffinParser.NUMBER)
-            self.state = 201
+            self.state = 193
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << puffinParser.T__4) | (1 << puffinParser.AND) | (1 << puffinParser.TO))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 202
+            self.state = 194
             self.match(puffinParser.NUMBER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1789,6 +1924,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class Id_nameContext(ParserRuleContext):
 
@@ -1808,6 +1944,16 @@ class puffinParser ( Parser ):
             else:
                 return self.getToken(puffinParser.NUMBER, i)
 
+        def id_name(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(puffinParser.Id_nameContext)
+            else:
+                return self.getTypedRuleContext(puffinParser.Id_nameContext,i)
+
+
+        def DOT(self):
+            return self.getToken(puffinParser.DOT, 0)
+
         def getRuleIndex(self):
             return puffinParser.RULE_id_name
 
@@ -1821,39 +1967,85 @@ class puffinParser ( Parser ):
 
 
 
-
-    def id_name(self):
-
-        localctx = puffinParser.Id_nameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_id_name)
+    def id_name(self, _p:int=0):
+        _parentctx = self._ctx
+        _parentState = self.state
+        localctx = puffinParser.Id_nameContext(self, self._ctx, _parentState)
+        _prevctx = localctx
+        _startState = 52
+        self.enterRecursionRule(localctx, 52, self.RULE_id_name, _p)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 204
+            self.state = 197
             self.match(puffinParser.IDL)
-            self.state = 208
+            self.state = 201
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 205
+                    self.state = 198
                     _la = self._input.LA(1)
                     if not(_la==puffinParser.IDL or _la==puffinParser.NUMBER):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
-                        self.consume()
-                self.state = 210
+                        self.consume() 
+                self.state = 203
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
+
+            self._ctx.stop = self._input.LT(-1)
+            self.state = 212
+            self._errHandler.sync(self)
+            _alt = self._interp.adaptivePredict(self._input,11,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
+                    if self._parseListeners is not None:
+                        self.triggerExitRuleEvent()
+                    _prevctx = localctx
+                    self.state = 210
+                    self._errHandler.sync(self)
+                    la_ = self._interp.adaptivePredict(self._input,10,self._ctx)
+                    if la_ == 1:
+                        localctx = puffinParser.Id_nameContext(self, _parentctx, _parentState)
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_id_name)
+                        self.state = 204
+                        if not self.precpred(self._ctx, 2):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
+                        self.state = 205
+                        self.match(puffinParser.DOT)
+                        self.state = 206
+                        self.id_name(3)
+                        pass
+
+                    elif la_ == 2:
+                        localctx = puffinParser.Id_nameContext(self, _parentctx, _parentState)
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_id_name)
+                        self.state = 207
+                        if not self.precpred(self._ctx, 1):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 1)")
+                        self.state = 208
+                        self.match(puffinParser.T__8)
+                        self.state = 209
+                        self.match(puffinParser.NUMBER)
+                        pass
+
+             
+                self.state = 214
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,11,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
             self._errHandler.recover(self, re)
         finally:
-            self.exitRule()
+            self.unrollRecursionContexts(_parentctx)
         return localctx
+
 
     class PctContext(ParserRuleContext):
 
@@ -1881,13 +2073,13 @@ class puffinParser ( Parser ):
     def pct(self):
 
         localctx = puffinParser.PctContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 56, self.RULE_pct)
+        self.enterRule(localctx, 54, self.RULE_pct)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 211
+            self.state = 215
             self.match(puffinParser.NUMBER)
-            self.state = 212
-            self.match(puffinParser.T__8)
+            self.state = 216
+            self.match(puffinParser.T__9)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1895,6 +2087,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class ElementContext(ParserRuleContext):
 
@@ -1922,10 +2115,10 @@ class puffinParser ( Parser ):
     def element(self):
 
         localctx = puffinParser.ElementContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 58, self.RULE_element)
+        self.enterRule(localctx, 56, self.RULE_element)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 214
+            self.state = 218
             self.match(puffinParser.ESTRING)
         except RecognitionException as re:
             localctx.exception = re
@@ -1934,6 +2127,7 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
 
     class ArglistContext(ParserRuleContext):
 
@@ -1972,39 +2166,39 @@ class puffinParser ( Parser ):
     def arglist(self):
 
         localctx = puffinParser.ArglistContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 60, self.RULE_arglist)
+        self.enterRule(localctx, 58, self.RULE_arglist)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 228
+            self.state = 232
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << puffinParser.T__3) | (1 << puffinParser.ABOUT) | (1 << puffinParser.AROUND) | (1 << puffinParser.COUNT) | (1 << puffinParser.ALMOST) | (1 << puffinParser.OVER) | (1 << puffinParser.BELOW) | (1 << puffinParser.ABOVE) | (1 << puffinParser.AT_MOST) | (1 << puffinParser.AT_LEAST) | (1 << puffinParser.BETWEEN) | (1 << puffinParser.FROM) | (1 << puffinParser.ORDER) | (1 << puffinParser.NORMAL) | (1 << puffinParser.UNIFORM) | (1 << puffinParser.BETA) | (1 << puffinParser.STRING) | (1 << puffinParser.IDL) | (1 << puffinParser.NUMBER))) != 0):
-                self.state = 218
+            while ((((_la - 4)) & ~0x3f) == 0 and ((1 << (_la - 4)) & ((1 << (puffinParser.T__3 - 4)) | (1 << (puffinParser.ABOUT - 4)) | (1 << (puffinParser.AROUND - 4)) | (1 << (puffinParser.COUNT - 4)) | (1 << (puffinParser.ALMOST - 4)) | (1 << (puffinParser.OVER - 4)) | (1 << (puffinParser.BELOW - 4)) | (1 << (puffinParser.ABOVE - 4)) | (1 << (puffinParser.AT_MOST - 4)) | (1 << (puffinParser.AT_LEAST - 4)) | (1 << (puffinParser.BETWEEN - 4)) | (1 << (puffinParser.FROM - 4)) | (1 << (puffinParser.ORDER - 4)) | (1 << (puffinParser.BERNOULLI - 4)) | (1 << (puffinParser.BETA - 4)) | (1 << (puffinParser.BINOMIAL - 4)) | (1 << (puffinParser.CAUCHY - 4)) | (1 << (puffinParser.CHISQU - 4)) | (1 << (puffinParser.DELTA - 4)) | (1 << (puffinParser.DISCUNIFORM - 4)) | (1 << (puffinParser.EXPENENTIAL - 4)) | (1 << (puffinParser.FDIST - 4)) | (1 << (puffinParser.FRECHET - 4)) | (1 << (puffinParser.GAMMA - 4)) | (1 << (puffinParser.GEOMETRIC - 4)) | (1 << (puffinParser.GUASSIAN - 4)) | (1 << (puffinParser.GUMBEL - 4)) | (1 << (puffinParser.LAPLACE - 4)) | (1 << (puffinParser.LOGISTIC - 4)) | (1 << (puffinParser.LOGNORMAL - 4)) | (1 << (puffinParser.LOGTRIANGULAR - 4)) | (1 << (puffinParser.NORMAL - 4)) | (1 << (puffinParser.PARETO - 4)) | (1 << (puffinParser.PASCAL - 4)) | (1 << (puffinParser.POISSON - 4)) | (1 << (puffinParser.POWFUN - 4)) | (1 << (puffinParser.RAYLEIGH - 4)) | (1 << (puffinParser.RECIPROCAL - 4)) | (1 << (puffinParser.SIMPSON - 4)) | (1 << (puffinParser.STUDENT_T - 4)) | (1 << (puffinParser.TRAPZOIDAL - 4)) | (1 << (puffinParser.TRANGULAR - 4)) | (1 << (puffinParser.UNIFORM - 4)) | (1 << (puffinParser.WAKEBY - 4)) | (1 << (puffinParser.WEIBUL - 4)) | (1 << (puffinParser.CBOX - 4)) | (1 << (puffinParser.STRING - 4)) | (1 << (puffinParser.IDL - 4)) | (1 << (puffinParser.NUMBER - 4)))) != 0):
+                self.state = 222
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [puffinParser.T__3, puffinParser.ABOUT, puffinParser.AROUND, puffinParser.COUNT, puffinParser.ALMOST, puffinParser.OVER, puffinParser.BELOW, puffinParser.ABOVE, puffinParser.AT_MOST, puffinParser.AT_LEAST, puffinParser.BETWEEN, puffinParser.FROM, puffinParser.ORDER, puffinParser.NORMAL, puffinParser.UNIFORM, puffinParser.BETA, puffinParser.STRING, puffinParser.NUMBER]:
-                    self.state = 216
+                if token in [puffinParser.T__3, puffinParser.ABOUT, puffinParser.AROUND, puffinParser.COUNT, puffinParser.ALMOST, puffinParser.OVER, puffinParser.BELOW, puffinParser.ABOVE, puffinParser.AT_MOST, puffinParser.AT_LEAST, puffinParser.BETWEEN, puffinParser.FROM, puffinParser.ORDER, puffinParser.BERNOULLI, puffinParser.BETA, puffinParser.BINOMIAL, puffinParser.CAUCHY, puffinParser.CHISQU, puffinParser.DELTA, puffinParser.DISCUNIFORM, puffinParser.EXPENENTIAL, puffinParser.FDIST, puffinParser.FRECHET, puffinParser.GAMMA, puffinParser.GEOMETRIC, puffinParser.GUASSIAN, puffinParser.GUMBEL, puffinParser.LAPLACE, puffinParser.LOGISTIC, puffinParser.LOGNORMAL, puffinParser.LOGTRIANGULAR, puffinParser.NORMAL, puffinParser.PARETO, puffinParser.PASCAL, puffinParser.POISSON, puffinParser.POWFUN, puffinParser.RAYLEIGH, puffinParser.RECIPROCAL, puffinParser.SIMPSON, puffinParser.STUDENT_T, puffinParser.TRAPZOIDAL, puffinParser.TRANGULAR, puffinParser.UNIFORM, puffinParser.WAKEBY, puffinParser.WEIBUL, puffinParser.CBOX, puffinParser.STRING, puffinParser.NUMBER]:
+                    self.state = 220
                     self.atom()
                     pass
                 elif token in [puffinParser.IDL]:
-                    self.state = 217
+                    self.state = 221
                     self.equals()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 223
+                self.state = 227
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==puffinParser.T__4:
-                    self.state = 220
+                    self.state = 224
                     self.match(puffinParser.T__4)
-                    self.state = 225
+                    self.state = 229
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 230
+                self.state = 234
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2015,3 +2209,28 @@ class puffinParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
+
+
+
+    def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
+        if self._predicates == None:
+            self._predicates = dict()
+        self._predicates[26] = self.id_name_sempred
+        pred = self._predicates.get(ruleIndex, None)
+        if pred is None:
+            raise Exception("No predicate with index:" + str(ruleIndex))
+        else:
+            return pred(localctx, predIndex)
+
+    def id_name_sempred(self, localctx:Id_nameContext, predIndex:int):
+            if predIndex == 0:
+                return self.precpred(self._ctx, 2)
+         
+
+            if predIndex == 1:
+                return self.precpred(self._ctx, 1)
+         
+
+
+
+

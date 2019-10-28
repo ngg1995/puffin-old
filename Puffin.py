@@ -18,21 +18,21 @@ def full_compile(file,puffin,output,language):
 
     antlr_puffin.read(puffin,puffin_,language)
 
-    if language == 'python':
+    if language == 'Python3':
         antlr_Python3.write(file,output,puffin_)
     elif language == 'R':
         antlr_R.write(file,output,puffin_)
 
     # Try to delete temp files
-    try: os.remove(puffin_)
-    except: pass
+    # try: os.remove(puffin_)
+    # except: pass
 
     print('Compiled')
 
 
 def get_puffin(file,output,language):
     # Reads a script and outputs a puffin file
-    if language == 'python':
+    if language == 'Python3':
         antlr_Python3.read(file,output)
     elif language == 'R':
         antlr_R.read(file,output)
@@ -46,7 +46,7 @@ def auto_uq_compile(file,output,language):
     puffin2 = 'temp2.pf'
     puffin_ = 'temp.pf_'
 
-    if language == 'python':
+    if language == 'Python3':
         antlr_Python3.read(file,puffin)
         add_in_auto_uq(puffin,puffin2)
         antlr_puffin.read(puffin2,puffin_,language)
@@ -219,7 +219,7 @@ def user_control():
                         fileName, fileExt = file.split('.')
                         fileExt = fileExt.lower()
                         if fileExt == 'py':
-                            language = 'python'
+                            language = 'Python3'
                         elif fileExt == 'r':
                             language = 'R'
                         else:
@@ -241,15 +241,15 @@ def user_control():
                     fileExt = fileExt.lower()
                     if language == None:
                         if fileExt == 'py':
-                            language = 'python'
+                            language = 'Python3'
                         elif fileExt == 'r':
                             language = 'R'
                         else:
                             print('ERROR: I don\'t know the language')
 
                     if output is None:
-                        if getpf:
-                            output = fileName +'.pf'
+
+                        output = fileName +'.pf'
 
                     if language is not None:
                         # Can get puffin file
@@ -268,7 +268,7 @@ def user_control():
                     if language is None:
 
                         if fileExt == 'py':
-                            language = 'python'
+                            language = 'Python3'
                         elif fileExt == 'r':
                             language = 'R'
                         else:
@@ -305,7 +305,7 @@ def user_control():
                     if language is None:
 
                         if fileExt == 'py':
-                            language = 'python'
+                            language = 'Python3'
                         elif fileExt == 'r':
                             language = 'R'
                         else:
@@ -452,7 +452,7 @@ def puffinComp(file,output,puffin,getpf,auto):
                 output = file.replace('.','_pf.')
 
         if fileExt == 'py':
-            language = 'python'
+            language = 'Python3'
         elif fileExt == 'r':
             language = 'R'
         else:

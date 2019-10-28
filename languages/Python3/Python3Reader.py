@@ -14,9 +14,10 @@ class Python3Reader(ParseTreeListener):
         self.vardec = False
         self.list_text = ""
         self.funname = ""
+        self.repvar = {}
 
 
-    ## Functions
+    ## Functions that do things
     def enterFuncdef(self, ctx:Python3Parser.FuncdefContext):
         self.funname = child_catcher(ctx,'Python3',list=True)[1]
     def exitFuncdef(self, ctx:Python3Parser.FuncdefContext):
@@ -30,6 +31,44 @@ class Python3Reader(ParseTreeListener):
         else:
             self.vardec = False
 
+    def enterAtom(self, ctx:Python3Parser.AtomContext):
+        for child in ctx.getChildren():
+            if child.__class__.__name__ == 'Testlist_compContext':
+                if ctx.getText().startswith('('):
+                    self.list_text = 'touple' + ctx.getText()
+                else:
+                    self.list_text = ctx.getText().replace('[','list(').replace(']',')')
+
+        if ctx.getText() == '[]':
+            self.list_text = 'list()'
+
+    def exitExpr_stmt(self, ctx:Python3Parser.Expr_stmtContext):
+        if self.vardec:
+            if self.list_text != "":
+
+
+                text = ctx.getText().split('=')[0]+' -> '+self.list_text +'\n'
+            else:
+
+                text = ctx.getText().replace('=',' -> ')+'\n'
+
+            if self.funname != "":
+
+                text = "%s.%s" %(self.funname,text)
+
+
+            varname = text.split('->')[0].strip()
+            if varname not in self.repvar.keys():
+                self.repvar[varname] = 1
+            else:
+                self.repvar[varname] += 1
+                text = text.replace(varname,"%s!%i" %(varname,self.repvar[varname]))
+
+
+            self.output.write(text)
+
+
+    # Fodder funcitons
     def enterTestlist_star_expr(self,ctx:Python3Parser.Testlist_star_exprContext):
         if self.vardec:
             self.vardec = has_child(ctx)
@@ -91,37 +130,6 @@ class Python3Reader(ParseTreeListener):
         if self.vardec:
             self.vardec = has_child(ctx)
 
-    def enterAtom(self, ctx:Python3Parser.AtomContext):
-        for child in ctx.getChildren():
-            if child.__class__.__name__ == 'Testlist_compContext':
-                if ctx.getText().startswith('('):
-                    self.list_text = 'touple' + ctx.getText()
-                else:
-                    self.list_text = ctx.getText().replace('[','list(').replace(']',')')
-
-        if ctx.getText() == '[]':
-            self.list_text = 'list()'
-
-
     def enterAugassign(self,ctx:Python3Parser.AugassignContext):
         #  a += 1 etc
         self.vardec = False
-
-    def exitExpr_stmt(self, ctx:Python3Parser.Expr_stmtContext):
-        if self.vardec:
-            if self.list_text != "":
-
-
-                text = ctx.getText().split('=')[0]+' -> '+self.list_text +'\n'
-            else:
-
-                text = ctx.getText().replace('=',' -> ')+'\n'
-
-            if self.funname != "":
-
-                text = "%s.%s" %(self.funname,text)
-
-            # if self.classname != "":
-
-
-            self.output.write(text)
