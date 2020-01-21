@@ -4,35 +4,41 @@
 # Uncertainty Compiler - How to use
 
 
-### 0. Install python [www.python.org](https://www.python.org/)
+## 0. Install python [www.python.org](https://www.python.org/)
+Puffin (*at the moment*) requires you to be able to use python3 from unix terminal or windows command prompt
 
+## 1. Download puffin
+###If git installed
 
-### 1. Check that required modules have been installed correctly
+    git clone https://gitlab.com/nickgray1995/puffin-compiler.git
 
-    pip install click
+###If git not installed
 
-    pip install pyqt5
+Download from gitlab directly and unzip
 
-    pip install mpmath
+## 2. Download required python files using pip
 
-    pip install numpy
+    pip install puffin-python-library
 
+You may have to use the --user tag at the end of the command
 
-### 2. Run the following to get GUI
-
-    python3 main.py
-
-
-### 3a. Set alias for command line interface (unix only)
+## 3. Create short names
+This step is optional but you may find useful
+### UNIX
 
     alias puffin="python3 puffin.py"
 
+### Windows
+3b. Create batch file in windows with the following in
 
-### 3b. Use in command line
+    @echo off
+    python puffin.py %1 %2 %3 %4
 
-To compiler uncertainty defined by uncerts.puffin into file.py
+## 4. Use in command line
 
-    puffin --file=file.py --puffin=uncerts.puffin
+To compiler uncertainty defined by uncerts.pf into file.py
+
+    puffin --file=file.py --puffin=uncerts.f
 
 To create puffin file from file.py
 
@@ -46,4 +52,4 @@ To automatically add uncertainty based on significant figures
 
 output file name can be specified by using
 
-    --output=*whatever.py*
+    --output=*whatever.whtevr*
