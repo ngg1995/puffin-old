@@ -8,11 +8,11 @@
 Puffin (*at the moment*) requires you to be able to use python3 from unix terminal or windows command prompt
 
 ## 1. Download puffin
-###If git installed
+### If git installed
 
     git clone https://gitlab.com/nickgray1995/puffin-compiler.git
 
-###If git not installed
+### If git not installed
 
 Download from gitlab directly and unzip
 
