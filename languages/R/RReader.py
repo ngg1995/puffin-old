@@ -16,6 +16,7 @@ class RReader(ParseTreeListener):
         self.vardec = False
         self.list_text = ""
         self.funname = ""
+        self.repvar = {}
 
 
     # Exit a parse tree produced by RParser#stmt.
@@ -33,6 +34,13 @@ class RReader(ParseTreeListener):
 
                 text = "%s.%s" %(self.funname,text)
 
+            varname = text.split('->')[0].strip()
+            if varname not in self.repvar.keys():
+                self.repvar[varname] = 1
+            else:
+                self.repvar[varname] += 1
+                text = text.replace(varname,"%s!%i" %(varname,self.repvar[varname]))
+
             self.output.write(text)
 
     # Exit a parse tree produced by RParser#simple_stmt.
@@ -42,11 +50,13 @@ class RReader(ParseTreeListener):
 
     # Enter a parse tree produced by RParser#function_stmt.
     def enterFunction_stmt(self, ctx:RParser.Function_stmtContext):
-        self.funname = child_catcher(ctx,'R',list = True)[2]
+        self.funname = child_catcher(ctx,'R',list = True)[0]
+
 
     # Exit a parse tree produced by RParser#function_stmt.
     def exitFunction_stmt(self, ctx:RParser.Function_stmtContext):
         self.funname = ""
+        self.vardec = False
 
     # Enter a parse tree produced by RParser#assingment_stmt.
     def enterAssingment_stmt(self, ctx:RParser.Assingment_stmtContext):
