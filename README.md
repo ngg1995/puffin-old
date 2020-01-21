@@ -29,7 +29,7 @@ This step is optional but you may find useful
     alias puffin="python3 puffin.py"
 
 ### Windows
-3b. Create batch file in windows with the following in
+3b. Create batch file (called puffin.bat) with the following in
 
     @echo off
     python puffin.py %1 %2 %3 %4
