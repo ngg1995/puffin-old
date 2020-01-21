@@ -224,7 +224,27 @@ class Python3Writer(ParseTreeListener):
         ctx.text = child_catcher(ctx,'Python3')
 
     def exitArith_expr(self, ctx:Python3Parser.Arith_exprContext):
-        ctx.text = child_catcher(ctx,'Python3')
+
+        expr = child_catcher(ctx,'Python3')
+        args = child_catcher(ctx,'Python3',list=True)
+
+        if len(args) != 1:
+
+            while len(args) != 1:
+                nargs = args[0:3]
+
+                if nargs[1] == "+":
+                    text = 'puffin.add(%s,%s)' %(nargs[0],nargs[2])
+                elif nargs[1] == "-":
+                    text = 'puffin.sub(%s,%s)' %(nargs[0],nargs[2])
+
+                del args[0:3]
+
+                args = [text] + args
+        else:
+            text = expr
+
+        ctx.text = text
 
     def exitLambdef(self, ctx:Python3Parser.LambdefContext):
         ctx.text = child_catcher(ctx,'Python3')
@@ -265,7 +285,23 @@ class Python3Writer(ParseTreeListener):
         expr = child_catcher(ctx,'Python3')
         args = child_catcher(ctx,'Python3',list=True)
 
-        ctx.text = expr
+        if len(args) != 1:
+
+            while len(args) != 1:
+                nargs = args[0:3]
+
+                if nargs[1] == "*":
+                    text = 'puffin.mul(%s,%s)' %(nargs[0],nargs[2])
+                elif nargs[1] == "/":
+                    text = 'puffin.div(%s,%s)' %(nargs[0],nargs[2])
+
+                del args[0:3]
+
+                args = [text] + args
+        else:
+            text = expr
+
+        ctx.text = text
 
     def exitAtom_expr(self, ctx:Python3Parser.Atom_exprContext):
         ctx.text = child_catcher(ctx,'Python3')

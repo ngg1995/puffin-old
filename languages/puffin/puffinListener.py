@@ -50,7 +50,7 @@ class puffinListener(ParseTreeListener):
     # Exit a parse tree produced by puffinParser#interval.
     def exitInterval(self, ctx:puffinParser.IntervalContext):
         if self.target == 'Python3':
-            ctx.text = child_catcher(ctx,'puffin').replace('[','puffin.interval(').replace(']',')')
+            ctx.text = child_catcher(ctx,'puffin').replace('[','puffin.I(').replace(']',')')
         if self.target == 'R':
             ctx.text = child_catcher(ctx,'puffin').replace('[','interval(').replace(']',')')
 
@@ -86,7 +86,7 @@ class puffinListener(ParseTreeListener):
 
         elif self.target == 'R':
 
-            ctx.text = ctx.getText().replace('list(','[').replace(')',']')
+            ctx.text = ctx.getText().replace('list(','c(')
 
 
 
@@ -98,7 +98,7 @@ class puffinListener(ParseTreeListener):
 
         elif self.target == 'R':
 
-            ctx.text = ctx.getText().replace('touple','')
+            ctx.text = ctx.getText().replace('touple','c')
 
 
     # Exit a parse tree produced by puffinParser#id_name.
@@ -155,7 +155,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -174,7 +174,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -196,7 +196,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -216,7 +216,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -235,7 +235,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -255,7 +255,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -275,7 +275,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -298,7 +298,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -317,7 +317,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -338,7 +338,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
@@ -353,7 +353,7 @@ class puffinListener(ParseTreeListener):
 
         if self.target == 'Python3':
 
-            ctx.text = 'puffin.interval(%s,%s)' %(lower,higher)
+            ctx.text = 'puffin.I(%s,%s)' %(lower,higher)
 
         elif self.target == 'R':
 
