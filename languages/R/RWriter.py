@@ -26,10 +26,34 @@ class RWriter(ParseTreeListener):
         self.output = output
         self.uncerts = uncerts
         self.changes = changes
-        self.output.write(preamble)
+
+        self.indent = 0
+        self.funname = ""
+        self.vardec = False
+
+        self.varlist = []
+        self.repvar = {}
+
         self.indent = 0
         self.insuite = False
         self.atomcount = 0
+
+        self.output.write(preamble)
+
+        for var in self.uncerts.keys():
+
+            if var not in self.varlist:
+                self.varlist.append(var)
+
+
+            if '!' in var:
+
+                [varpart,reppart] = var.strip().split("!")
+
+                if varpart not in self.repvar.keys() and reppart != "1":
+
+                    self.repvar[varpart] = 1
+
 
     # Exit a parse tree produced by RParser#stmt.
     def exitStmt(self, ctx:RParser.StmtContext):
@@ -48,11 +72,13 @@ class RWriter(ParseTreeListener):
         ctx.text = child_catcher(ctx,'R')
 
 
-
     # Exit a parse tree produced by RParser#function_stmt.
+    def enterFunction_stmt(self, ctx:RParser.Function_stmtContext):
+        self.funname = child_catcher(ctx,'R',list = True)[0]
+        
     def exitFunction_stmt(self, ctx:RParser.Function_stmtContext):
         ctx.text = child_catcher(ctx,'R')
-
+        self.funname = ""
 
 
     # Exit a parse tree produced by RParser#if_stmt.
@@ -112,18 +138,37 @@ class RWriter(ParseTreeListener):
 
         if self.atomcount == 2:
 
-            children = child_catcher(ctx,'R',list = True)
+            varname = child_catcher(ctx,'R',list = True)[0]
+            var = varname
+            if self.funname != '':
+                # If in function add function name to varname
+                varname = "%s.%s" %(self.funname, varname)
 
-            if children[0] in self.uncerts.keys():
+            if varname in self.repvar.keys():
+                # If varname is repeated add count flag
 
-                children[2] = self.uncerts[children[0]]
+                if self.repvar[varname] != 1 or "%s!%i" %(varname,self.repvar[varname]) in self.varlist:
+
+                    varname = "%s!%i" %(varname,self.repvar[var])
+
+                # Add to number of repeats
+                self.repvar[var] += 1
+
+            print(varname)
+            if varname in self.varlist:
+
+                children = child_catcher(ctx,'R',list = True)
+
+                children[2] = self.uncerts[varname]
 
                 ctx.text = ''
 
                 for child in children:
                     ctx.text += child + ' '
 
-                ctx.text += '\n'
+                # ctx.text += '\n'
+
+                self.varlist.remove(varname)
 
             else: ctx.text = child_catcher(ctx,'R')
 
