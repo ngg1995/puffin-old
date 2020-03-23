@@ -1,8 +1,0 @@
-__pycache__/
-
-.DS_Store
-*.autosave
-.files/
-test.*
-test_uq.*
-test_pf.*
