@@ -14,18 +14,15 @@ class Errm(Exception):
 
 def full_compile(file,puffin,output,language):
     ## Takes a input file and a puffin file and compiler the puffin Uncertainties in to the input file
-    puffin_ = puffin+language
 
-    antlr_puffin.read(puffin,puffin_,language)
+
+    uncerts,changes,dependencies = antlr_puffin.read(puffin,language)
 
     if language == 'Python3':
-        antlr_Python3.write(file,output,puffin_)
+        antlr_Python3.write(file,output,uncerts,changes,dependencies)
     elif language == 'R':
-        antlr_R.write(file,output,puffin_)
+        antlr_R.write(file,output,uncerts,changes)
 
-    # Try to delete temp files
-    # try: os.remove(puffin_)
-    # except: pass
 
     print('Compiled')
 
@@ -44,25 +41,25 @@ def auto_uq_compile(file,output,language):
 
     puffin = 'temp.pf'
     puffin2 = 'temp2.pf'
-    puffin_ = 'temp.pf_'
+
 
     if language == 'Python3':
         antlr_Python3.read(file,puffin)
         add_in_auto_uq(puffin,puffin2)
-        antlr_puffin.read(puffin2,puffin_,language)
-        antlr_Python3.write(file,output,puffin_)
+        uncerts,changes,dependencies = antlr_puffin.read(puffin2,language)
+        antlr_Python3.write(file,output,uncerts,changes,dependencies)
 
     elif language == 'R':
         antlr_R.read(file,puffin)
         add_in_auto_uq(puffin,puffin2)
-        antlr_puffin.read(puffin2,puffin_,language)
-        antlr_R.write(file,output,puffin_)
+        uncerts,changes,dependencies = antlr_puffin.read(puffin2,language)
+        antlr_R.write(file,output,uncerts,changes)
 
     # Try to delete temp files
     try:
         os.remove(puffin)
         os.remove(puffin2)
-        os.remove(puffin_)
+
     except: pass
 
 def add_in_auto_uq(puffin,output):

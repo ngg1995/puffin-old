@@ -8,6 +8,7 @@ else:
 import sys
 from useful import child_catcher
 import mpmath as mp
+import pandas as pd
 
 sigfigs = lambda x: len(str(x).replace('.',''))
 getNumber = lambda n, ctx: child_catcher(ctx,'puffin',list=True)[n]
@@ -15,16 +16,32 @@ getNumber = lambda n, ctx: child_catcher(ctx,'puffin',list=True)[n]
 # This class defines a complete listener for a parse tree produced by puffinParser.
 class puffinListener(ParseTreeListener):
 
-    def __init__(self,output,target):
-        self.output = output
-        self.target = target
+    def __init__(self,target,dependencies = pd.DataFrame()):
 
+        self.target = target
+        self.dependencies = dependencies
+        self.uncerts = {}
+        self.changes = {}
         self.directChange = False
 
 
     # Exit a parse tree produced by puffinParser#file_input.
     def exitFile_input(self, ctx:puffinParser.File_inputContext):
-        self.output.write(child_catcher(ctx,'puffin',noTerm = True))
+        for line in child_catcher(ctx,'puffin',list=True,noTerm = True):
+            if line.strip() != "":
+                parts = [x.strip() for x in line.split('->')]
+
+                if '«' in line:
+
+                    self.changes[parts[0].replace("«",'').replace("»","")] = parts[1]
+
+                else:
+
+                    if parts[0] in self.uncerts.keys():
+
+                        print("%s has been reassinged multiple times. Only the last entry will be used" %(parts[0]))
+
+                    self.uncerts[parts[0]] = parts[1]
 
     # Exit a parse tree produced by puffinParser#assignment.
     def exitAssignment(self, ctx:puffinParser.AssignmentContext):
@@ -358,3 +375,51 @@ class puffinListener(ParseTreeListener):
         elif self.target == 'R':
 
             ctx.text = 'interval(%s,%s)' %(lower,higher)
+
+    # Enter a parse tree produced by puffinParser#dependence.
+    def enterDependence(self, ctx:puffinParser.DependenceContext):
+
+        # detect dependancies
+
+        # puffin format will is as follows:
+        # a <fiop> b,c,d,....
+
+        # will be stored in a dataframe
+
+        children = child_catcher(ctx,'puffin',list=True,noTerm = True)
+
+        named = children.pop(0)
+
+        deptype = children.pop(0).replace('<','').replace('>','')
+
+        for child in children:
+
+
+            # check to see if dependence already specified
+            if named in self.dependencies.index and child in self.dependencies.index:
+                # check if dependencies clash
+                if deptype != 'f' and self.dependencies.loc[named,child] == 'f':
+                    # this is allowed
+                    pass
+                elif deptype == self.dependencies.loc[named,child]:
+                    # this is allowed
+                    pass
+                else:
+                    raise Exception('Stated Dependancies Clash')
+
+            else:
+                # if not specided specify them
+                if named not in self.dependencies.index:
+                    self.dependencies.loc[named,named] = 'p'
+                if child not in self.dependencies.index:
+                    self.dependencies.loc[child,child] = 'p'
+
+            self.dependencies.loc[named,child] = deptype
+            self.dependencies.loc[child,named] = deptype
+
+            self.dependencies = self.dependencies.fillna('f')
+
+
+    # Exit a parse tree produced by puffinParser#dependence.
+    def exitDependence(self, ctx:puffinParser.DependenceContext):
+        ctx.text = '' # dont want to print out in new file
