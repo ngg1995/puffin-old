@@ -1,55 +1,68 @@
-# How to use Guide
+# OpenTheme
 
+Powerful new theme featuring Semantic UI for speedily creating amazing websites and mobile-hybrid apps on GitHub Pages.
 
-# Uncertainty Compiler - How to use
+## Getting Started
 
+### Fork and Publish Direct from GitHub
 
-## 0. Install python [www.python.org](https://www.python.org/)
-Puffin (*at the moment*) requires you to be able to use python3 from unix terminal or windows command prompt
+1. Fork OpenTheme as your own repo
+2. IMPORTANT: Edit _config.yml -> "API Keys" section to replace OpenTheme keys with your own
+3. Edit and publish _posts, or _data, or pages directly from GitHub
 
-## 1. Download puffin
-### If git installed
+### Local Setup
 
-    git clone https://gitlab.com/nickgray1995/puffin-compiler.git
+```
+bundle install # Install Jekyll, Github Pages gems
+npm install # Install Gulp and dependences
+gulp # Build, test, serve and watch your local setup
+```
 
-### If git not installed
+IMPORTANT: Edit **_config.yml** -> "API Keys" section to replace OpenTheme keys with your own
 
-Download from gitlab directly and unzip
+Optionally edit **gulpfile.js** -> BrowserSync host, port to your local setup
 
-## 2. Download required python files using pip
+Optionally, helper bash scripts available in **/scripts** folder. Use **shove.sh** to push changes to your repo. Use **clone.sh** to copy changes to GitHub Pages.
 
-    pip install puffin-python-library
+## File Structure
 
-You may have to use the --user tag at the end of the command
+### Folders Pre-processed by GitHub Pages / Jekyll
 
-## 3. Create short names
-This step is optional but you may find useful
-### UNIX
+- **_includes** html partials reusable in layouts.
+- **_layouts** html layouts reusable in pages. 
+- **_posts** Post types organized by folder. **apps** contains single page apps. **blog** contains blog posts.
+- **_data** Static data files including YAML Front Matter, CSV, JSON formats usable by GitHub Pages sites.
 
-    alias puffin="python3 puffin.py"
+### Asset Folders
 
-### Windows
-3b. Create batch file (called puffin.bat) with the following in
+- **js** add site specific JavaScript to custom.js. Vendor libraries are added as minified where available.
+- **css** add site specific CSS to custom.css. Vendor libraries are added as minified where available. Contains folders for assets referenced by custom or vendor css.
+- **img** image assets.
 
-    @echo off
-    python puffin.py %1 %2 %3 %4
+### Development Automation
 
-## 4. Use in command line
+- **script** Automation shell scripts for development, testing. [TO DO] Replace with Gulp pipeline automation, E2E, Lint tests.
 
-To compiler uncertainty defined by uncerts.pf into file.py
+### Files
 
-    puffin --file=file.py --puffin=uncerts.f
+- **Gemfile** defines gems required for creating local Jekyll building and serving "like" how GitHub Pages would.
 
-To create puffin file from file.py
+## Dependencies
 
-    puffin --file=file.py --getpf
+- Semantic UI
+- Jekyll
 
-To automatically add uncertainty based on significant figures
+## Reference Projects
 
-    puffin --file=file.py --auto
+Study following projects for best practices.
 
-    puffin --puffin=uncerts.puffin --auto
+### Jekyll built sites and themes
 
-output file name can be specified by using
+- [Jekyll website](http://jekyllrb.com/)
+- GitHub Pages themes
+- [Lanyon](https://github.com/poole/lanyon)
+- [Jekyll Themes](http://jekyllthemes.org/)
 
-    --output=*whatever.whtevr*
+### GitHub hosted sites
+
+- [Semantic UI website](http://www.semantic-ui.com)
