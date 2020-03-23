@@ -22,7 +22,7 @@ source('pba.r')
 # This class defines a complete listener for a parse tree produced by RParser.
 class RWriter(ParseTreeListener):
 
-    def __init__(self, output,uncerts = {},translations = {},changes={}):
+    def __init__(self, output,uncerts = {},changes={}):
         self.output = output
         self.uncerts = uncerts
         self.changes = changes
@@ -75,7 +75,7 @@ class RWriter(ParseTreeListener):
     # Exit a parse tree produced by RParser#function_stmt.
     def enterFunction_stmt(self, ctx:RParser.Function_stmtContext):
         self.funname = child_catcher(ctx,'R',list = True)[0]
-        
+
     def exitFunction_stmt(self, ctx:RParser.Function_stmtContext):
         ctx.text = child_catcher(ctx,'R')
         self.funname = ""

@@ -182,6 +182,7 @@ def read_uncert(file):
                 if '«' in line:
 
                     changes[parts[0].replace("«",'').replace("»","")] = parts[1]
+
                 else:
 
                     if parts[0] in uncerts.keys():

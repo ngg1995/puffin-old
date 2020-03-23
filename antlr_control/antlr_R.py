@@ -23,15 +23,13 @@ def read(filename,outfile):
 
     output.close()
 
-def write(filename,newName,uncerts_file):
+def write(filename,newName,uncerts, changes):
 
     input = FileStream(filename,encoding='utf-8')
     lexer = RLexer(input)
     stream = CommonTokenStream(lexer)
     parser = RParser(stream)
     tree = parser.file_input()
-
-    uncerts,changes = read_uncert(uncerts_file)
 
     output = open(newName,"w")
 

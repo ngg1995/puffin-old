@@ -21,7 +21,7 @@ def read(filename,outfile):
 
     output.close()
 
-def write(filename,newName,uncerts_file):
+def write(filename,newName,uncerts,changes,dependencies):
 
     input = FileStream(filename,encoding='utf-8')
     lexer = Python3Lexer(input)
@@ -29,12 +29,9 @@ def write(filename,newName,uncerts_file):
     parser = Python3Parser(stream)
     tree = parser.file_input()
 
-
-    uncerts,changes = read_uncert(uncerts_file)
-
     output = open(newName,"w")
 
-    Python3Puffin = Python3Writer(output,uncerts,changes = changes)
+    Python3Puffin = Python3Writer(output,uncerts = uncerts,changes = changes,dependencies = dependencies)
     walker = ParseTreeWalker()
     walker.walk(Python3Puffin, tree)
 
