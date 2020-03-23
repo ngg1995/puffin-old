@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Customization
-nav_order: 4
+title: Home
+nav_order: 1
 ---
 Hello World

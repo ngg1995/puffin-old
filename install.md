@@ -1,7 +1,8 @@
-# How to use Guide
-
-
-# Uncertainty Compiler - How to use
+---
+layout: default
+title: Install
+nav_order: 3
+---
 
 
 ## 0. Install python [www.python.org](https://www.python.org/)
