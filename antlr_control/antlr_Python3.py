@@ -6,40 +6,40 @@ import os
 
 
 
-def read(filename,outfile):
-    input = FileStream(filename,encoding='utf-8')
+def read(input):
     lexer = Python3Lexer(input)
     stream = CommonTokenStream(lexer)
     parser = Python3Parser(stream)
     tree = parser.file_input()
 
-    output = open(outfile,"w")
+    # output = open(outfile,"w")
 
-    Python3Puffin = Python3Reader(output)
+    Python3Puffin = Python3Reader()
     walker = ParseTreeWalker()
     walker.walk(Python3Puffin, tree)
 
-    output.close()
+    return Python3Puffin.output
 
-def write(filename,newName,uncerts,changes,dependencies):
+def write(input,uncerts,changes,dependencies):
 
-    input = FileStream(filename,encoding='utf-8')
+    # input = FileStream(filename,encoding='utf-8')
     lexer = Python3Lexer(input)
     stream = CommonTokenStream(lexer)
     parser = Python3Parser(stream)
     tree = parser.file_input()
 
-    output = open(newName,"w")
 
-    Python3Puffin = Python3Writer(output,uncerts = uncerts,changes = changes,dependencies = dependencies)
+    Python3Puffin = Python3Writer(uncerts = uncerts,changes = changes,dependencies = dependencies)
     walker = ParseTreeWalker()
     walker.walk(Python3Puffin, tree)
 
-    if Python3Puffin.varlist != []:
-        print("No matches could be found for the following variables:")
-        for v in Python3Puffin.varlist:
-            print('\t%s'%v)
-    output.close()
+
+    return Python3Puffin.output
+    # if Python3Puffin.varlist != []:
+    #     print("No matches could be found for the following variables:")
+    #     for v in Python3Puffin.varlist:
+    #         print('\t%s'%v)
+    # output.close()
 
 if __name__ == "__main__":
 

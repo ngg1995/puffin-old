@@ -26,7 +26,6 @@ def full_compile(file,puffin,output,language):
 
     print('Compiled')
 
-
 def get_puffin(file,output,language):
     # Reads a script and outputs a puffin file
     if language == 'Python3':

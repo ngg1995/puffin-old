@@ -9,8 +9,8 @@ from useful import has_child, child_catcher
 
 class Python3Reader(ParseTreeListener):
 
-    def __init__(self, output):
-        self.output = output
+    def __init__(self):
+        self.output = ""
         self.vardec = False
         self.list_text = ""
         self.funname = ""
@@ -65,7 +65,7 @@ class Python3Reader(ParseTreeListener):
                 text = text.replace(varname,"%s!%i" %(varname,self.repvar[varname]))
 
 
-            self.output.write(text)
+            if text != "": self.output += text
 
 
     # Fodder funcitons
