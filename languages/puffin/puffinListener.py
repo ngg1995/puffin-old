@@ -30,7 +30,7 @@ class puffinListener(ParseTreeListener):
         for line in child_catcher(ctx,'puffin',list=True,noTerm = True):
             if line.strip() != "":
                 parts = [x.strip() for x in line.split('->')]
-
+                # print(line)
                 if '«' in line:
 
                     self.changes[parts[0].replace("«",'').replace("»","")] = parts[1]
@@ -41,6 +41,7 @@ class puffinListener(ParseTreeListener):
 
                         print("%s has been reassinged multiple times. Only the last entry will be used" %(parts[0]))
 
+                    # print(parts)
                     self.uncerts[parts[0]] = parts[1]
 
     # Exit a parse tree produced by puffinParser#assignment.

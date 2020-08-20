@@ -2,8 +2,8 @@ import sys
 from antlr4 import *
 from languages.puffin import puffinParser, puffinLexer, puffinListener
 
-def read(filename,target):
-    input = FileStream(filename,encoding='utf-8')
+def read(input,target = "Python3"):
+    # input = FileStream(filename,encoding='utf-8')
     lexer = puffinLexer(input)
     stream = CommonTokenStream(lexer)
     parser = puffinParser(stream)

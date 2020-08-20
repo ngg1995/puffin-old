@@ -164,8 +164,7 @@ def getSigFig(number):
 
         d = len(zeros) - 1
 
-    # d = len(str(number).replace('.',''))
-    print(d)
+
     lower = number - 5*10**(d-1)
     higher = number + 5*10**(d-1)
 
