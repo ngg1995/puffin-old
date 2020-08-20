@@ -6,3 +6,6 @@ __pycache__/
 test.*
 test_uq.*
 test_pf.*
+
+venv
+build
