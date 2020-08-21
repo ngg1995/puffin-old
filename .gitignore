@@ -9,3 +9,4 @@ test_pf.*
 
 venv
 build
+.vscode
