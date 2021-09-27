@@ -107,4 +107,4 @@ api.add_resource(AutoGenerateUncerts, '/AutoGenerateUncerts')
 
 
 if __name__ == '__main__':
-    app.run(port = 5001, debug=False)
+    app.run(port = 5000, debug=False)
